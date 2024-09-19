@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Иерофант.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
