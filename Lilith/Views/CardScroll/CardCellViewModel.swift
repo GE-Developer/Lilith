@@ -13,6 +13,7 @@ final class CardCellViewModel: ObservableObject {
     
     var title: String {
         card.title.uppercased()
+        
     }
     
     var imageName: String {
