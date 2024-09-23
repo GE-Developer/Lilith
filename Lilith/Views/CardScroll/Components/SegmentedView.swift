@@ -34,9 +34,11 @@ struct SegmentedView: View {
         }
         .shadow(color: Color.main.zodiacShadow, radius: 4)
     }
+        
     
     private func didTapped(on arkan: Arkan) {
-        withAnimation(.snappy) {
+        guard activeTab != arkan else { return }
+        withAnimation(.smooth) {
             activeTab = arkan
         }
     }

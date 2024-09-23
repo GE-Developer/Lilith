@@ -77,6 +77,6 @@ struct TitleView: View {
 }
 
 #Preview {
-    CardScrollView()
+    CardsView()
         .preferredColorScheme(.light)
 }

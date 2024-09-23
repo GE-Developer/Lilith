@@ -50,7 +50,7 @@ struct SearchView: View {
                     .fontWeight(.light)
                 
                 if !searchText.isEmpty {
-                    Button(action: { searchText = ""} ) {
+                    Button(action: { searchText = "" } ) {
                         Image(systemName: "xmark")
                             .font(.title3)
                             .fontWeight(.ultraLight)
@@ -71,7 +71,6 @@ struct SearchView: View {
                 if isHidden {
                     isInputActive = false
                 }
-                print(isOnScreen)
             }
             
 
@@ -79,6 +78,6 @@ struct SearchView: View {
 }
 
 #Preview {
-    CardScrollView()
+    CardsView()
         .preferredColorScheme(.light)
 }

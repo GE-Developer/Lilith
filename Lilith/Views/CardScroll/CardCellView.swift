@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardCellView: View {
 
-    @ObservedObject var vm: CardCellViewModel
+    let vm: CardCellViewModel
     @State private var offset: CGFloat = 0
     
     private var imageSize: CGSize {
@@ -22,14 +22,12 @@ struct CardCellView: View {
     init(vm: CardCellViewModel, cellHeight: Double) {
         self.vm = vm
         self.cellHeight = cellHeight
-        
-//        print("\(vm.title) --- \(vm.romanNumber)")
     }
     
     
     var body: some View {
         HStack {
-            CardImage(imageName: vm.imageName, cellHeight: cellHeight, imageSize: imageSize)
+            CardImage(imageName: vm.imageName, cellHeight: cellHeight, imageSize: imageSize) // -------- < тут тут
             VStack {
                 Text(vm.title)
                     .font(
@@ -125,22 +123,21 @@ struct CardImage: View {
     let imageName: String
     let cellHeight: Double
     let imageSize: CGSize
-  
+    
     var body: some View {
-        ZStack {
-            Image(imageName)
-                .resizable()
-            Color.black.opacity(0)
-        }
-        .frame(width: imageSize.width, height: imageSize.height)
-        .clipShape(
-            RoundedRectangle(cornerRadius: cellHeight / 10)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: cellHeight / 10)
-                .stroke(Color.main.background, lineWidth: 1)
-        )
-        .shadow(color: Color.main.zodiacShadow, radius: 3)
+        
+        Image("Тест1")
+//        Image(imageName)
+            .resizable()
+            .frame(width: imageSize.width, height: imageSize.height)
+            .clipShape(
+                RoundedRectangle(cornerRadius: cellHeight / 10)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: cellHeight / 10)
+                    .stroke(Color.main.background, lineWidth: 1)
+            )
+            .shadow(color: Color.main.zodiacShadow, radius: 3)
     }
 }
 

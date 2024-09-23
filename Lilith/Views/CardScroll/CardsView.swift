@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardsView: View {
-    @StateObject private var vm = CardsListViewModel(ClassicCard())
+    @StateObject private var vm = CardsViewModel(ClassicCard())
     @FocusState private var isInputActive: Bool
     @State private var searchBarIsHidden = false
     

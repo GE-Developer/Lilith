@@ -11,34 +11,22 @@ final class CardCellViewModel: ObservableObject {
     
     @Published var isLiked: Bool = false
     
-    var title: String {
-        card.title.uppercased()
-        
-    }
-    
-    var imageName: String {
-        card.image
-    }
-    
-    var element: Element? {
-        card.element
-    }
-    
-    var planet: Planet? {
-        card.astrology?.planet
-    }
-    
-    var zodiac: Zodiac? {
-        card.astrology?.zodiac
-    }
-    
-    var romanNumber: String {
-        card.numerology.romanNumber
-    }
+    let title: String
+    let imageName: String
+    let element: Element?
+    let planet: Planet?
+    let zodiac: Zodiac?
+    let romanNumber: String
     
     private let card: Card
     
     init(card: Card) {
         self.card = card
+        title = card.title.uppercased()
+        imageName = card.image
+        element = card.element
+        planet = card.astrology?.planet
+        zodiac = card.astrology?.zodiac
+        romanNumber = card.numerology.romanNumber
     }
 }

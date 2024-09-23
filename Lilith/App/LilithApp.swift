@@ -13,7 +13,7 @@ struct LilithApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CardScrollView()
+            CardsView()
                 .preferredColorScheme(.light)
         }
     }

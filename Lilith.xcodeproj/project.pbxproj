@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F3526752C86FA7200EF0A1D /* CardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3526742C86FA7200EF0A1D /* CardScrollView.swift */; };
+		1F1581F82C9F489000C3AEE7 /* ClassicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1581F72C9F489000C3AEE7 /* ClassicCard.swift */; };
+		1F3526752C86FA7200EF0A1D /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3526742C86FA7200EF0A1D /* CardsView.swift */; };
 		1F4CB66A2C7BCB05005BD10C /* LilithApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB6692C7BCB05005BD10C /* LilithApp.swift */; };
 		1F4CB66E2C7BCB07005BD10C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F4CB66D2C7BCB07005BD10C /* Assets.xcassets */; };
 		1F4CB6712C7BCB07005BD10C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F4CB6702C7BCB07005BD10C /* Preview Assets.xcassets */; };
@@ -15,7 +16,7 @@
 		1F73F4B22C9473CD00F67913 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F4B12C9473CD00F67913 /* SegmentedView.swift */; };
 		1F73F4B42C94742100F67913 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F4B32C94742100F67913 /* TitleView.swift */; };
 		1F73F4B62C94747900F67913 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73F4B52C94747900F67913 /* SearchView.swift */; };
-		1F7F68B12C934A4E0092FEB4 /* CardScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7F68B02C934A4E0092FEB4 /* CardScrollViewModel.swift */; };
+		1F7F68B12C934A4E0092FEB4 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7F68B02C934A4E0092FEB4 /* CardsViewModel.swift */; };
 		1FA003A12C7E9C1E004726FC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA003A02C7E9C1E004726FC /* Card.swift */; };
 		1FC6FE432C866CFC008345F3 /* Extension + Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6FE422C866CFC008345F3 /* Extension + Color.swift */; };
 		1FC974B22C8A09CE0089FC39 /* ZodiacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC974B12C8A09CE0089FC39 /* ZodiacView.swift */; };
@@ -25,7 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F3526742C86FA7200EF0A1D /* CardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScrollView.swift; sourceTree = "<group>"; };
+		1F1581F72C9F489000C3AEE7 /* ClassicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicCard.swift; sourceTree = "<group>"; };
+		1F3526742C86FA7200EF0A1D /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		1F4CB6662C7BCB05005BD10C /* Lilith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lilith.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4CB6692C7BCB05005BD10C /* LilithApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LilithApp.swift; sourceTree = "<group>"; };
 		1F4CB66D2C7BCB07005BD10C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,13 +36,13 @@
 		1F73F4B12C9473CD00F67913 /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		1F73F4B32C94742100F67913 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		1F73F4B52C94747900F67913 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		1F7F68B02C934A4E0092FEB4 /* CardScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScrollViewModel.swift; sourceTree = "<group>"; };
+		1F7F68B02C934A4E0092FEB4 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		1FA003A02C7E9C1E004726FC /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		1FC6FE422C866CFC008345F3 /* Extension + Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Color.swift"; sourceTree = "<group>"; };
 		1FC974B12C8A09CE0089FC39 /* ZodiacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacView.swift; sourceTree = "<group>"; };
 		1FD926582C87BB96000E0AB4 /* ElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementView.swift; sourceTree = "<group>"; };
 		1FE5EA972C988C87006197F8 /* CardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellViewModel.swift; sourceTree = "<group>"; };
-		1FFA6E4E2C8459E900041E92 /* CardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
+		1FFA6E4E2C8459E900041E92 /* CardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; tabWidth = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				1FA003A02C7E9C1E004726FC /* Card.swift */,
+				1F1581F72C9F489000C3AEE7 /* ClassicCard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,8 +138,8 @@
 		1F73F4AC2C94701900F67913 /* CardScroll */ = {
 			isa = PBXGroup;
 			children = (
-				1F3526742C86FA7200EF0A1D /* CardScrollView.swift */,
-				1F7F68B02C934A4E0092FEB4 /* CardScrollViewModel.swift */,
+				1F3526742C86FA7200EF0A1D /* CardsView.swift */,
+				1F7F68B02C934A4E0092FEB4 /* CardsViewModel.swift */,
 				1FE5EA972C988C87006197F8 /* CardCellViewModel.swift */,
 				1FFA6E4E2C8459E900041E92 /* CardCellView.swift */,
 				1F73F4AD2C94705700F67913 /* Components */,
@@ -237,13 +240,14 @@
 				1F73F4B42C94742100F67913 /* TitleView.swift in Sources */,
 				1F73F4AB2C9449BF00F67913 /* CardsCustomList.swift in Sources */,
 				1F4CB66A2C7BCB05005BD10C /* LilithApp.swift in Sources */,
-				1F7F68B12C934A4E0092FEB4 /* CardScrollViewModel.swift in Sources */,
+				1F7F68B12C934A4E0092FEB4 /* CardsViewModel.swift in Sources */,
 				1FE5EA982C988C87006197F8 /* CardCellViewModel.swift in Sources */,
 				1FD926592C87BB96000E0AB4 /* ElementView.swift in Sources */,
-				1F3526752C86FA7200EF0A1D /* CardScrollView.swift in Sources */,
+				1F3526752C86FA7200EF0A1D /* CardsView.swift in Sources */,
 				1F73F4B22C9473CD00F67913 /* SegmentedView.swift in Sources */,
 				1FC974B22C8A09CE0089FC39 /* ZodiacView.swift in Sources */,
 				1FFA6E4F2C8459E900041E92 /* CardCellView.swift in Sources */,
+				1F1581F82C9F489000C3AEE7 /* ClassicCard.swift in Sources */,
 				1F73F4B62C94747900F67913 /* SearchView.swift in Sources */,
 				1FA003A12C7E9C1E004726FC /* Card.swift in Sources */,
 				1FC6FE432C866CFC008345F3 /* Extension + Color.swift in Sources */,
