@@ -1,5 +1,5 @@
 //
-//  CardScrollView.swift
+//  CardsView.swift
 //  Lilith
 //
 //  Created by Mikhail Bukhrashvili on 03.09.24.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CardScrollView: View {
-    @StateObject private var vm = CardScrollViewModel(cards: Card.getCard())
+struct CardsView: View {
+    @StateObject private var vm = CardsListViewModel(ClassicCard())
     @FocusState private var isInputActive: Bool
     @State private var searchBarIsHidden = false
     
@@ -16,6 +16,7 @@ struct CardScrollView: View {
         NavigationStack {
             ZStack(alignment: .top) {
                 ScrollView(showsIndicators: false) {
+                    
                     GeometryReader { proxy in
                         let minY = proxy.frame(in: .scrollView(axis: .vertical)).minY
                         VStack {
@@ -36,11 +37,12 @@ struct CardScrollView: View {
                         .safeAreaPadding(.horizontal)
                     }
                     .frame(height: 110)
-                    CardsCustomList(vm: vm)
+                    CardsCustomList(activeTab: vm.activeTab, cards: vm.presentedCards)
                         .safeAreaPadding(.horizontal)
                 }
                 .scrollTargetBehavior(CustomScrollTargetBehaviour())
                 .safeAreaPadding(.top, 170)
+                .padding(.bottom, 30)
                 .background(Color.main.background)
                 
                 TitleView(title: vm.title, isSmall: $searchBarIsHidden)
@@ -68,7 +70,7 @@ struct CardScrollView: View {
 
 // MARK: - Preview
 #Preview {
-    CardScrollView()
+    CardsView()
         .preferredColorScheme(.light)
 }
 
