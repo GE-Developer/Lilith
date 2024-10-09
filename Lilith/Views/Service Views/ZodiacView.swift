@@ -16,8 +16,8 @@ struct ZodiacView: View {
             .renderingMode(.template)
             .resizable()
             .scaledToFit()
-            .foregroundStyle(Color.main.zodiacForeground)
-            .shadow(color: Color.main.zodiacShadow, radius: 1)
+            .foregroundStyle(Color.sign.zodiac)
+            .shadow(color: Color.sign.shadow, radius: 1)
             .frame(height: size)
     }
 }

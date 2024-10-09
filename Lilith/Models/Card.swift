@@ -8,7 +8,10 @@
 import Foundation
 
 struct Card: Identifiable {
-    let id = UUID()
+    var id: String {
+        title
+    }
+    
     let title: String // Назание
     let image: String // Фото карты
     let element: Element?

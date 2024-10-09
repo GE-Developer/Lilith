@@ -38,7 +38,7 @@ struct ElementView: View {
             .stroke(lineWidth: stroke)
             .offset(y: -BY/2)
             .foregroundStyle(setColor())
-            .shadow(color: Color.main.zodiacShadow, radius: 5)
+            .shadow(color: Color.sign.shadow, radius: 5)
             .rotationEffect(setRotationDegrees())
         }
     }
@@ -52,10 +52,10 @@ struct ElementView: View {
     
     private func setColor() -> Color {
         switch element {
-        case .fire: Color.main.red
-        case .water: Color.main.blue
-        case .earth: Color.main.green
-        case .air: Color.main.gray
+        case .fire: Color.sign.fire
+        case .water: Color.sign.water
+        case .earth: Color.sign.earth
+        case .air: Color.sign.air
         }
     }
 }

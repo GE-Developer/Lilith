@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct LilithApp: App {
-
     var body: some Scene {
         WindowGroup {
-            CardsView()
-                .preferredColorScheme(.light)
+            ContentView()
+                .preferredColorScheme(.dark)
         }
+        
     }
 }
