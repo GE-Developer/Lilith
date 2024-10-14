@@ -8,6 +8,7 @@
 import Foundation
 
 protocol CardsInfoProtocol {
+    var id: String { get }
     var title: String { get }
     var subTitle: String { get }
     var description: String { get }
@@ -15,7 +16,8 @@ protocol CardsInfoProtocol {
 }
 
 
-final class ClassicCard: CardsInfoProtocol {
+final class ClassicCard: CardsInfoProtocol, Identifiable {
+    let id = "Rider Waite"
     let title = "Колода Таро"
     let subTitle = "Райдер Уэйт"
     let description = ""
@@ -286,7 +288,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Туз Посохов",
+            title: "Туз Жезлов",
             image: "Туз Посохов",
             element: .fire,
             arkan: .minor,
@@ -298,7 +300,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Двойка Посохов",
+            title: "Двойка Жезлов",
             image: "Двойка Посохов",
             element: .fire,
             arkan: .minor,
@@ -310,7 +312,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Тройка Посохов",
+            title: "Тройка Жезлов",
             image: "Тройка Посохов",
             element: .fire,
             arkan: .minor,
@@ -322,7 +324,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Четвёрка Посохов",
+            title: "Четвёрка Жезлов",
             image: "Четвёрка Посохов",
             element: .fire,
             arkan: .minor,
@@ -334,7 +336,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Пятёрка Посохов",
+            title: "Пятёрка Жезлов",
             image: "Пятёрка Посохов",
             element: .fire,
             arkan: .minor,
@@ -346,7 +348,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Шестёрка Посохов",
+            title: "Шестёрка Жезлов",
             image: "Шестёрка Посохов",
             element: .fire,
             arkan: .minor,
@@ -358,7 +360,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Семёрка Посохов",
+            title: "Семёрка Жезлов",
             image: "Семёрка Посохов",
             element: .fire,
             arkan: .minor,
@@ -370,7 +372,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Восьмёрка Посохов",
+            title: "Восьмёрка Жезлов",
             image: "Восьмёрка Посохов",
             element: .fire,
             arkan: .minor,
@@ -382,7 +384,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Девятка Посохов",
+            title: "Девятка Жезлов",
             image: "Девятка Посохов",
             element: .fire,
             arkan: .minor,
@@ -394,7 +396,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Десятка Посохов",
+            title: "Десятка Жезлов",
             image: "Десятка Посохов",
             element: .fire,
             arkan: .minor,
@@ -766,7 +768,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Паж Посохов",
+            title: "Паж Жезлов",
             image: "Паж Посохов",
             element: .fire,
             arkan: .court,
@@ -778,7 +780,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Рыцарь Посохов",
+            title: "Рыцарь Жезлов",
             image: "Рыцарь Посохов",
             element: .fire,
             arkan: .court,
@@ -790,7 +792,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Королева Посохов",
+            title: "Королева Жезлов",
             image: "Королева Посохов",
             element: .fire,
             arkan: .court,
@@ -802,7 +804,7 @@ final class ClassicCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
-            title: "Король Посохов",
+            title: "Король Жезлов",
             image: "Король Посохов",
             element: .fire,
             arkan: .court,
@@ -959,3 +961,121 @@ final class ClassicCard: CardsInfoProtocol {
         )
     ]
 }
+
+final class OtherCard: CardsInfoProtocol {
+    let id = "Other"
+    let title = "Колода Таро"
+    let subTitle = "Кастомная"
+    let description = ""
+    
+    let cards: [Card] = [
+        Card(
+            title: "Просто очень длинное название",
+            image: "Шут",
+            element: .air,
+            arkan: .major,
+            astrology: Astrology(planet: .uranus, zodiac: nil, description: nil),
+            numerology: Numerology(number: "9", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        ),
+        Card(
+            title: "El Caballero de Pentáculos",
+            image: "Шут",
+            element: .air,
+            arkan: .major,
+            astrology: Astrology(planet: .uranus, zodiac: nil, description: nil),
+            numerology: Numerology(number: "9", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        ),
+        Card(
+            title: "Der Ritter der Schwerter",
+            image: "Шут",
+            element: .air,
+            arkan: .major,
+            astrology: Astrology(planet: .venus, zodiac: nil, description: nil),
+            numerology: Numerology(number: "2", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        ),
+        Card(
+            title: "ფენტაკლების დედოფალი",
+            image: "Шут",
+            element: .water,
+            arkan: .major,
+            astrology: Astrology(planet: .mars, zodiac: .pisces, description: nil),
+            numerology: Numerology(number: "12", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        ),
+        Card(
+            title: "Le Chevalier de Pentacles",
+            image: "Шут",
+            element: .fire,
+            arkan: .major,
+            astrology: Astrology(planet: .uranus, zodiac: .aries, description: nil),
+            numerology: Numerology(number: "4", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        ),
+        Card(
+            title: "The Queen of Pentacles",
+            image: "Шут",
+            element: .earth,
+            arkan: .minor,
+            astrology: Astrology(planet: .sun, zodiac: .capricorn, description: nil),
+            numerology: Numerology(number: "15", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        ),
+        Card(
+            title: "Il Cavaliere di Denari",
+            image: "Шут",
+            element: .earth,
+            arkan: .minor,
+            astrology: Astrology(planet: .sun, zodiac: .capricorn, description: nil),
+            numerology: Numerology(number: "15", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        ),
+        Card(
+            title: "ملكة الخماسيات",
+            image: "Шут",
+            element: .earth,
+            arkan: .court,
+            astrology: Astrology(planet: .sun, zodiac: .capricorn, description: nil),
+            numerology: Numerology(number: "15", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        ),
+        Card(
+            title: "ペンタクルの騎士",
+            image: "Шут",
+            element: .earth,
+            arkan: .court,
+            astrology: Astrology(planet: .sun, zodiac: .capricorn, description: nil),
+            numerology: Numerology(number: "15", descriptions: nil),
+            filosophy: nil,
+            mainMeaning: nil,
+            personalityCharacterization: nil,
+            answer: nil
+        )
+        ]
+    }

@@ -73,15 +73,13 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
                 scrollHeaderView
                 scrollView()
             }
-//            .simultaneousGesture(
-//                DragGesture()
-//                    .onChanged { _ in } // Это пустой жест для ScrollView, чтобы она не блокировалась
-//            )
+            .scrollDismissesKeyboard(.immediately)
             .safeAreaPadding(.horizontal)
             .safeAreaPadding(.top, largeNavBarHeight + 8)
             .scrollTargetBehavior(scrollBehavior)
             .contentMargins(.top, contentMargin, for: .scrollIndicators)
             .zIndex(1)
+            
         }
         .toolbarVisibility(.hidden, for: .navigationBar)
     }

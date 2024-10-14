@@ -2,65 +2,44 @@
 //  CardCellView.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 01.09.24.
+//  Created by Mikhail Bukhrashvili on 13.10.24.
 //
 
 import SwiftUI
 
-struct CardCellView: View {
-    
+struct Cell: View {
     @ObservedObject var vm: CardCellViewModel
-    
     let cellHeight: Double
     
-    @State private var offset = 0.0
-    
-    @State private var isGestureEnabled = true
-    
     var body: some View {
-        GeometryReader { geometry in
-            let geometryWidth = geometry.size.width
-            
-            ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundStyle(Gradient.cellGradient)
-                HStack(alignment: .top) {
-                    imageView
-                    
-                    VStack(alignment: .leading) {
-                        HStack {
-                            titleTextView
-                            Spacer()
-                            romanView
-                        }
-                        Divider()
-                        
-                        VStack(alignment: .leading) {
-                            planetView
-                            zodiacView
-                            elementView
-                        }
+        ZStack(alignment: .leading) {
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundStyle(Gradient.cellGradient)
+            HStack(alignment: .top) {
+                imageView
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        titleTextView
+                        Spacer()
+                        romanView
                     }
-                    .padding(8)
+                    Divider()
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        planetView
+                        zodiacView
+                        elementView
+                    }
                 }
-                .padding(8)
-                
-                likeSymbolView
-                
-                gestureZone
-                    .offset(x: geometryWidth - cellHeight / 2.5)
-                    .gesture(gest)
-                
-                likeAndDeleteSwipeView
-                    .offset(x: geometryWidth + 16 - offset / 2.25 - cellHeight / 7)
+                .padding(.top, 3)
+                .padding(.horizontal, 3)
             }
-            .offset(x: offset)
-        }
-        .frame(maxWidth: .infinity)
-        .frame(height: cellHeight)
-        .allowsHitTesting(isGestureEnabled)
-        .onAppear {
-            vm.isLikeButtonShow = !vm.isLiked
+            .padding(8)
+            
+            
+            likeSymbolView
+                
         }
     }
     
@@ -85,6 +64,8 @@ struct CardCellView: View {
             .fontWeight(.bold)
             .fontDesign(.rounded)
             .multilineTextAlignment(.leading)
+            .lineLimit(2)
+            .minimumScaleFactor(0.5)
     }
     
     private var romanView: some View {
@@ -115,15 +96,15 @@ struct CardCellView: View {
                         .stroke(lineWidth: 2)
                         .fill(Color.sign.planet)
                         .shadow(color: Color.sign.shadow, radius: 5)
-                        .frame(height: cellHeight / 10)
+                        .frame(height: cellHeight / 14)
                     
                     Text(planet.rawValue.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
-                        .font(.caption)
+                        .font(.caption2)
                         .fontWeight(.medium)
                         .fontDesign(.rounded)
                 }
-                .padding(5)
+                .padding(4)
                 .background {
                     RoundedRectangle(cornerRadius: 5)
                         .foregroundStyle(Color.main.background)
@@ -136,15 +117,15 @@ struct CardCellView: View {
         Group {
             if let zodiac = vm.zodiac {
                 HStack {
-                    ZodiacView(zodiac: zodiac, size: cellHeight / 10)
+                    ZodiacView(zodiac: zodiac, size: cellHeight / 14)
                     
                     Text(zodiac.rawValue.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
-                        .font(.caption)
+                        .font(.caption2)
                         .fontWeight(.medium)
                         .fontDesign(.rounded)
                 }
-                .padding(5)
+                .padding(4)
                 .background {
                     RoundedRectangle(cornerRadius: 5)
                         .foregroundStyle(Color.main.background)
@@ -157,15 +138,15 @@ struct CardCellView: View {
         Group {
             if let element = vm.element {
                 HStack {
-                    ElementView(element: element, stroke: 2)
-                        .frame(width: cellHeight / 10, height: cellHeight / 10)
+                    ElementView(element: element, stroke: 1)
+                        .frame(width: cellHeight / 14, height: cellHeight / 14)
                     Text(element.rawValue.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
-                        .font(.caption)
+                        .font(.caption2)
                         .fontWeight(.medium)
                         .fontDesign(.rounded)
                 }
-                .padding(5)
+                .padding(4)
                 .background {
                     RoundedRectangle(cornerRadius: 5)
                         .foregroundStyle(Color.main.background)
@@ -174,113 +155,20 @@ struct CardCellView: View {
         }
     }
     
-    private var gestureZone: some View {
-        Circle()
-            .frame(height: cellHeight / 2.5)
-            .foregroundStyle(.clear)
-            .contentShape(Circle())
-    }
-    
-    private var likeAndDeleteSwipeView: some View {
-        Group {
-            if vm.isLikeButtonShow {
-                FabulaLikeButton(
-                    isSelected: vm.isLiked,
-                    image: Image.system.heart,
-                    imageFill: Image.system.heartFill
-                )
-            } else {
-                FabulaLikeButton(
-                    isSelected: !vm.isLiked,
-                    image: Image(systemName: "xmark.bin"),
-                    imageFill: Image(systemName: "xmark.bin.fill")
-                )
-            }
-        }
-        .frame(width: cellHeight / 4.5 ,height: cellHeight / 4.5)
-        .scaleEffect(max(min(0.1 - offset / 100, 1), 0))
-        .opacity(max(min(0 - offset / 100, 1), 0))
-    }
-    
     private var likeSymbolView: some View {
-        Group {
-            
+        HStack {
+            Spacer()
+            VStack {
+                Spacer()
+                Image.system.heartFill
+                    .font(.title)
+                    .foregroundStyle(Gradient.heartGradient)
+                    .shadow(color: Color.main.background, radius: 3)
+                    .opacity(vm.isLiked ? 1 : 0.001)
+                    .scaleEffect(vm.isLiked ? 1 : 0.001)
+                    .animation(.snappy(duration: 0.2).delay(0.8), value: vm.isLiked)
+            }
         }
-    }
-    
-    private var gest: some Gesture {
-        
-        
-        
-        
-        
-        
-        
-        
-        DragGesture(minimumDistance: 20, coordinateSpace: .global)
-        
-            .onChanged { gesture in
-                withAnimation {
-                    let xGesture = gesture.translation.width
-                    let xOffset = max(xGesture, -70) + xGesture / 5
-                    offset = max(min(xOffset, 0), -105)
-                }
-            }
-        
-            .onEnded { _ in
-                if offset < -100 {
-                    isGestureEnabled = false
-                    if vm.isLiked {
-                        vm.delete()
-                        print("(if) = Было лайкнуто - сменилось на = \(vm.isLiked)")
-                        print("(if) = Состояние кнопки = \(vm.isLikeButtonShow)")
-                    } else {
-                        vm.create()
-                        print("(else) = Не было лайкнуто - сменилось на = \(vm.isLiked)")
-                        print("(else) = Состояние кнопки = \(vm.isLikeButtonShow)")
-                    }
-                    withAnimation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 13)) {
-                        offset = -110
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        withAnimation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 13)) {
-                            offset = 0
-                        }
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                        withAnimation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 13)) {
-                            vm.isLikeButtonShow = !vm.isLiked
-                            print("(Через 2.5 сек) = Состояние кнопки = \(vm.isLikeButtonShow)")
-                        }
-                        isGestureEnabled = true
-                    }
-                    
-                } else {
-                    withAnimation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 13)) {
-                        offset = 0
-                    }
-                }
-            }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        .padding()
     }
 }

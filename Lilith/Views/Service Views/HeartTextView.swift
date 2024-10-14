@@ -1,30 +1,5 @@
 import SwiftUI
 
-struct HeartTextView: View {
-    @State private var isSelected = false
-    
-    var body: some View {
-        VStack {
-            FabulaLikeButton(
-                isSelected: isSelected,
-                image: Image.system.heart,
-                imageFill: Image.system.heartFill
-            )
-                .frame(width: 100, height: 100)
-            Spacer()
-            Button {
-                isSelected.toggle()
-            } label: {
-                Text("GO")
-                    .font(.largeTitle)
-            }
-
-        }
-    }
-}
-
-
-
 struct FabulaLikeEffect: View {
     
     @Binding var scale: CGFloat
@@ -53,7 +28,7 @@ struct FabulaLikeEffect: View {
 struct FabulaLikeButton: View {
     
     let isSelected: Bool
-    let normalColor: Color = Color.white
+    let normalColor: Color = Color.navigation.cellTwo
     let selectColor: Color = Color.navigation.romanBackground
     let effectColor: Color = Color.navigation.heartTwo
     let image: Image
@@ -73,14 +48,20 @@ struct FabulaLikeButton: View {
                     .fontWeight(.ultraLight)
                     .opacity(isSelected ? 0 : 1)
                     .scaleEffect(isSelected ? 0.0001 : 1)
-                    .foregroundColor(normalColor)
-                    .animation(isSelected ? Animation.easeOut(duration: 0) : Animation.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0.8), value: isSelected)
+                    .foregroundStyle(normalColor)
+                    .animation(
+                        isSelected
+                        ? .easeOut(duration: 0)
+                        : .spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0.8),
+                        value: isSelected
+                    )
                 
                 imageFill
                     .font(.system(size: minSize))
                     .opacity(isSelected ? 1 : 0)
                     .scaleEffect(isSelected ? 1 : 0.0001)
-                    .foregroundColor(isSelected ? selectColor : Color.clear)
+                    .foregroundStyle(Gradient.heartGradient)
+                    .opacity(isSelected ? 1 : 0)
                     .animation(isSelected ? Animation.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0.8).delay(0.2) : Animation.easeOut(duration: 0), value: isSelected)
                 
                 Circle()
@@ -109,7 +90,6 @@ struct FabulaLikeButton: View {
             .animation(Animation.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0.8), value: isSelected)
             .frame(width: minSize, height: minSize, alignment: .center)
             
-            
             .onChange(of: isSelected) {
                 withAnimation(Animation.spring(response: 0.34, dampingFraction: 0.6, blendDuration: 0.8)) {
                     if isSelected {
@@ -128,9 +108,7 @@ struct FabulaLikeButton: View {
                         self.scaleCircle = 0.0001
                     }
                 }
-                
             }
         }
     }
 }
-

@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct SegmentedView: View {
+    @ObservedObject var vm: CardsViewModel
     @State private var isButtonDisabled = false
-    @Binding var activeTab: Arkan
+//    @Binding var activeTab: Arcana
+//    @Binding var isSegmentTapped: Bool
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 12) {
-                ForEach(Arkan.allCases, id: \.self) { arkan in
+                ForEach(Arcana.allCases, id: \.self) { arkan in
                     segmentButtonPlaced(for: arkan)
                 }
             }
@@ -23,15 +25,15 @@ struct SegmentedView: View {
     }
     
     @ViewBuilder
-    private func segmentButtonPlaced(for currentArkan: Arkan) -> some View {
+    private func segmentButtonPlaced(for currentArkan: Arcana) -> some View {
         Button {
             didTapped(on: currentArkan)
         } label: {
-            Text(currentArkan.shortPlural)
+            Text(currentArkan.shortPlural + " " + vm.countAllCards(for: currentArkan))
                 .font(.callout)
                 .fontDesign(.rounded)
                 .foregroundStyle(
-                    activeTab == currentArkan
+                    vm.activeTab == currentArkan
                     ? Color.navigation.segmentTextPressed
                     : Color.navigation.segmentText
                 )
@@ -44,11 +46,11 @@ struct SegmentedView: View {
     }
     
     @ViewBuilder
-    private func setupButton(currentArkan: Arkan) -> some View {
+    private func setupButton(currentArkan: Arcana) -> some View {
         Capsule()
             .fill(
                 LinearGradient(
-                    colors: activeTab == currentArkan
+                    colors: vm.activeTab == currentArkan
                     ? [Color.navigation.segmentBackgroundPressedOne,
                        Color.navigation.segmentBackgroundPressedTwo]
                     : [Color.navigation.segmentBackground],
@@ -58,15 +60,18 @@ struct SegmentedView: View {
             )
     }
     
-    private func didTapped(on arkan: Arkan) {
-        guard activeTab != arkan else { return }
+    private func didTapped(on arkan: Arcana) {
+        guard vm.activeTab != arkan else { return }
+//        isSegmentTapped = true
+
         withAnimation(.easeOut) {
-            activeTab = arkan
+            vm.activeTab = arkan
         }
         isButtonDisabled = true
-        // Устанавливаем таймер на 5 секунд, по истечении которого кнопка снова станет доступной
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
             isButtonDisabled = false
+//            isSegmentTapped = false
         }
     }
 }

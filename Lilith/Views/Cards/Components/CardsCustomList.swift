@@ -9,61 +9,65 @@ import SwiftUI
 
 // MARK: - Cards Custom List
 struct CardsCustomList: View {
+    @ObservedObject var vm: CardsViewModel
+    @Binding var isGestureEnabled: Bool
+    @State private var swipedCardID: String? = nil
     
-    private let arkans = Arkan.allCases.filter { $0 != .all }
-    
-    let activeTab: Arkan
-    let cards: [Arkan: [Card]]
-    
+
     var body: some View {
         LazyVStack(spacing: 15) {
             ForEachSection { arkan, cardsForSection in
+                Spacer(minLength: 7)
                 Section(header: ArkanTitleView(text: arkan.plural)) {
                     if !cardsForSection.isEmpty {
-                        let _ = print(cardsForSection.isEmpty)
-                        ForEach(cardsForSection) { card in
-                            Button(action: { print("Нажатие") }) {
-             
-                                CardCellView(vm: CardCellViewModel(card: card, storage: .shared), cellHeight: 150)
+                        ForEach(cardsForSection, id: \.id) { card in
                             
+                            let isDisabled = !isGestureEnabled && swipedCardID != card.id
+                            Button(action: { print("Нажатие на карту")  }) {
+                                
+                                let vmCell = CardCellViewModel(card: card, vm)
+                                SwipeableCardCellView(
+                                    vm: vmCell,
+                                    cellHeight: 150,
+                                    isGestureEnabled: $isGestureEnabled,
+                                    swipedCardID: $swipedCardID
+                                )
+                                .id(card.id)
+                                
                             }
-                            .disabled(false)
+                            .allowsHitTesting(isGestureEnabled)
+                            .onDisappear {
+                                if swipedCardID == card.id {
+                                    isGestureEnabled = true
+                                    swipedCardID = nil
+                                }
+                            }
+                            .disabled(isDisabled)
+                            .opacity(isDisabled ? 0.6 : 1)
+                            .animation(.easeInOut, value: isDisabled)
+                            
                         }
+                        
                     } else {
-                        NoCardView()
+                        NoCardView(text: vm.noCardText)
                     }
                 }
             }
-            .transition(
-                .asymmetric(
-                    insertion: .move(edge: .leading).combined(with: .opacity),
-                    removal: .move(edge: .trailing).combined(with: .opacity)
-                )
+            .tabTransition(
+                previousTab: vm.previousTab.order,
+                currentTab: vm.activeTab.order
             )
         }
     }
-    
-//    private func determineTransition() -> AnyTransition {
-//        if selectedCase.rawValue > previousCase.rawValue {
-//            return .asymmetric(
-//                insertion: .move(edge: .trailing).combined(with: .opacity),
-//                removal: .move(edge: .leading).combined(with: .opacity)
-//            )
-//        } else {
-//            return .asymmetric(
-//                insertion: .move(edge: .leading).combined(with: .opacity),
-//                removal: .move(edge: .trailing).combined(with: .opacity)
-//            )
-//        }
-//    }
+
     
     @ViewBuilder
-    private func ForEachSection(@ViewBuilder completion: @escaping (Arkan, [Card]) -> some View) -> some View {
+    private func ForEachSection(@ViewBuilder completion: @escaping (Arcana, [Card]) -> some View) -> some View {
         
-        switch activeTab {
+        switch vm.activeTab {
         case .all:
-            ForEach(Arkan.allCases.filter { $0 != .all }, id: \.self) { arkan in
-                if let cardsForSection = cards[arkan] {
+            ForEach(Arcana.allCases.filter { $0 != .all }, id: \.self) { arkan in
+                if let cardsForSection = vm.presentedCards[arkan] {
                     completion(arkan, cardsForSection)
                 }
             }
@@ -72,52 +76,76 @@ struct CardsCustomList: View {
 //                completion(activeTab, cardsForSection)
 //            }
         case .major:
-            if let cardsForSection = cards[activeTab] {
-                completion(activeTab, cardsForSection)
+            if let cardsForSection = vm.presentedCards[vm.activeTab] {
+                completion(vm.activeTab, cardsForSection)
             }
         case .minor:
-            if let cardsForSection = cards[activeTab] {
-                completion(activeTab, cardsForSection)
+            if let cardsForSection = vm.presentedCards[vm.activeTab] {
+                completion(vm.activeTab, cardsForSection)
             }
         case .court:
-            if let cardsForSection = cards[activeTab] {
-                completion(activeTab, cardsForSection)
+            if let cardsForSection = vm.presentedCards[vm.activeTab] {
+                completion(vm.activeTab, cardsForSection)
             }
         }
     }
 }
 
 struct NoCardView: View {
-#warning("Цвет и NoCardView")
+    let text: String
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .fill(
-                    LinearGradient(
-                        colors: [.clear, Color.red],
-                        startPoint: .bottom,
-                        endPoint: .top
-                    )
-                )
-                .shadow(color: Color.gray, radius: 5)
-            Text("Нет карт")
+                .foregroundStyle(Gradient.cellGradient)
+            Text(text)
                 .font(.title3)
                 .fontDesign(.rounded)
                 .fontWeight(.light)
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(Color.main.secondaryText)
         }
-        .frame(height: 120)
+        .frame(height: 100)
     }
 }
 
 struct ArkanTitleView: View {
     let text: String
     var body: some View {
-        Text(text)
-            .foregroundStyle(Color.main.titleText)
+        Text(text.uppercased())
+            .foregroundStyle(Color.main.secondaryText)
             .font(.title2)
             .fontDesign(.rounded)
-            .fontWeight(.light)
+            .fontWeight(.semibold)
     }
 }
 
+
+
+//struct TabTransitionModifier: ViewModifier {
+//    let previousTab: Int
+//    let currentTab: Int
+//
+//    func body(content: Content) -> some View {
+//        let isForward = previousTab < currentTab
+//
+//        let insertionEdge: Edge = isForward ? .trailing : .leading
+//        let removalEdge: Edge = isForward ? .leading : .trailing
+//        
+//        let transition: AnyTransition = .asymmetric(
+//            insertion: .move(edge: insertionEdge),
+//            removal: .move(edge: removalEdge)
+//        )
+//        
+//        return content
+//            .transition(transition.combined(with: .opacity))
+//    }
+//}
+//
+//extension View {
+//    func tabTransition(previousTab: Int, currentTab: Int) -> some View {
+//        let viewModifier = TabTransitionModifier(
+//            previousTab: previousTab,
+//            currentTab: currentTab
+//        )
+//        return self.modifier(viewModifier)
+//    }
+//}

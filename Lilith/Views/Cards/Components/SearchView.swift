@@ -41,11 +41,13 @@ struct SearchView: View {
         .offset(y: minY < 0 ? -minY / 2 : 0)
         .animation(.easeInOut, value: isButtonEnabled)
         .animation(.easeInOut, value: focus)
-        .onChange(of: minY) {
-            if max(40 + Double(minY), 0) == 0 {
-                focus = false
-            }
-        }
+        
+        //        .onChange(of: minY) {
+//            if max(40 + Double(minY), 0) == 0 {
+//                focus = false
+//            }
+//        }
+      
     }
     
     private var searchImage: some View {

@@ -8,52 +8,71 @@
 import SwiftUI
 
 struct CardsView: View {
-    @StateObject private var vm = CardsViewModel(ClassicCard())
+    @StateObject var vm: CardsViewModel
+    @State private var isGestureEnabled = true
+    
+    init(_ typeOfDeck: CardsInfoProtocol) {
+        _vm = StateObject(wrappedValue: CardsViewModel(typeOfDeck))
+    }
     
     var body: some View {
-        CustomScrollView(headerHight: 90, type: .withSearchField) { isLarge in
-            VStack(alignment: .leading) {
-                Text(vm.title)
-                    .font(isLarge ? .title : .title3)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(Color.navigation.title)
-                if isLarge {
-                    Text(vm.subTitle)
-                        .font(.subheadline)
-                        .fontWeight(.light)
-                        .foregroundStyle(Color.navigation.secondaryTitle)
-                        .transition(.opacity.combined(with: .move(edge: .top)))
+        Group {
+            CustomScrollView(headerHight: 90, type: .withSearchField) { isLarge in
+                VStack(alignment: .leading) {
+                    Text(vm.title)
+                        .font(isLarge ? .title : .title3)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color.navigation.title)
+                    if isLarge {
+                        Text(vm.subTitle)
+                            .font(.subheadline)
+                            .fontWeight(.light)
+                            .foregroundStyle(Color.navigation.secondaryTitle)
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                    }
                 }
-            }
-            .fontDesign(.rounded)
-            Spacer()
-            likeButton
-                .padding(.vertical, 8)
-                .rotation3DEffect(
-                    Angle(degrees: isLarge ? 0 : 180),
-                    axis: (x: 0, y: 1, z: 0)
-                )
-                .animation(.easeInOut(duration: 0.5), value: isLarge)
-            
-        } headerView: { minY in
-            VStack {
-                SearchView(
-                    searchText: $vm.searchText,
-                    placeholderText: vm.placeholderText,
-                    cancelButtonTitle: vm.cancelButtonTitle,
-                    minY: minY
-                )
+                .fontDesign(.rounded)
                 Spacer()
-                SegmentedView(activeTab: $vm.activeTab)
+                Text(vm.likedCardIDs.count.formatted())
+                likeButton
+                    .padding(.vertical, 8)
+                    .rotation3DEffect(
+                        Angle(degrees: isLarge ? 0 : 180),
+                        axis: (x: 0, y: 1, z: 0)
+                    )
+                    .animation(.easeInOut(duration: 0.5), value: isLarge)
+                    .disabled(!isGestureEnabled)
+                
+                    .opacity(isGestureEnabled ? 1 : 0.6)
+                    .animation(.easeInOut, value: isGestureEnabled)
+                
+                
+            } headerView: { minY in
+                VStack {
+                    SearchView(
+                        searchText: $vm.searchText,
+                        placeholderText: vm.placeholderText,
+                        cancelButtonTitle: vm.cancelButtonTitle,
+                        minY: minY
+                    )
+                    Spacer()
+                    SegmentedView(vm: vm)
+                }
+                .disabled(!isGestureEnabled)
+                .opacity(isGestureEnabled ? 1 : 0.6)
+                .animation(.easeInOut, value: isGestureEnabled)
+                
+            } scrollView: {
+                CardsCustomList(vm: vm, isGestureEnabled: $isGestureEnabled)
             }
-            
-        } scrollView: {
-            CardsCustomList(activeTab: vm.activeTab, cards: vm.presentedCards)
+        }
+        .onDisappear {
+            print("onDisappear")
         }
     }
     
     private var likeButton: some View {
-        Button(action: { print("Переход на страницу лайков") }) {
+        Button(action: { print("Кнопка") }) {
             ZStack {
                 Circle()
                     .foregroundStyle(Color.navigation.likeButtonBackground)
@@ -61,17 +80,7 @@ struct CardsView: View {
                 Image.system.heartFill
                     .resizable()
                     .scaledToFit()
-                    .foregroundStyle(
-                        RadialGradient(
-                            colors: [
-                                Color.navigation.heartOne,
-                                Color.navigation.heartTwo
-                            ],
-                            center: .bottomTrailing,
-                            startRadius: 0,
-                            endRadius: 90
-                        )
-                    )
+                    .foregroundStyle(Gradient.heartGradient)
                     .offset(y: 1)
                     .scaleEffect(0.5)
             }

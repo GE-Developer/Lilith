@@ -6,19 +6,15 @@
 //
 
 import Foundation
+import Combine
 
+@MainActor
 final class CardCellViewModel: ObservableObject {
     
-    private var storage: StorageManager
-    @Published private var likedCards: [LikedCard] = [] {
-        didSet {
-            let liked = likedCards.contains(where: { $0.id == card.id })
-            isLiked = liked
-        }
-    }
+    private var cancellables = Set<AnyCancellable>()
+    unowned var cardsViewModel: CardsViewModel
     
-    @Published var isLiked = false
-    @Published var isLikeButtonShow = false
+    var isLiked = false
     
     let title: String
     let imageName: String
@@ -26,52 +22,34 @@ final class CardCellViewModel: ObservableObject {
     let planet: Planet?
     let zodiac: Zodiac?
     let romanNumber: String
+    let cardID: String
     
-    private let card: Card
-    
-    deinit {
-        print("Deinit")
-    }
-    
-    init(card: Card, storage: StorageManager) {
-        self.card = card
+    init(card: Card, _ cardsViewModel: CardsViewModel) {
         title = card.title.uppercased()
         imageName = card.image
         element = card.element
         planet = card.astrology?.planet
         zodiac = card.astrology?.zodiac
         romanNumber = card.numerology.romanNumber
-        self.storage = storage
+        self.cardsViewModel = cardsViewModel
+        cardID = card.id
         
-        fetch()
+        bindIsLiked()
     }
     
-    private func fetch() {
-        storage.fetch { result in
-            switch result {
-            case .success(let likedCards):
-                self.likedCards = likedCards
-            case .failure(let error):
-                print(error.localizedDescription)
+    deinit {
+        print("deinit --  \(title)")
+    }
+    
+    private func bindIsLiked() {
+        cardsViewModel.$likedCardIDs
+            .map { [weak self] likedCardIDs in
+                guard let self = self else { return false }
+                return likedCardIDs.contains(self.cardID)
             }
-        }
-    }
-    
-    func create() {
-        storage.create(card.id) { newCard in
-            likedCards.append(newCard)
-        }
-    }
-    
-    func delete() {
-        if let likedCard = likedCards.first(where: { $0.id == card.id }) {
-            // Если такая карта найдена, вызываем метод удаления
-            storage.delete(likedCard)
-            
-            // Можно также удалить карту из массива likedCards (если нужно)
-            likedCards.removeAll { $0.id == card.id }
-        } else {
-            print("Карта с id \(card.id) не найдена в likedCards.")
-        }
+            .sink { [weak self] isLiked in
+                self?.isLiked = isLiked  // Обновляем состояние вручную, без assign
+            }
+            .store(in: &cancellables)
     }
 }

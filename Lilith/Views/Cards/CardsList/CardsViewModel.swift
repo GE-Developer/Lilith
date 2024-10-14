@@ -9,12 +9,16 @@ import Combine
 
 @MainActor
 final class CardsViewModel: ObservableObject {
-    
     @Published var searchText: String = ""
-    @Published var activeTab: Arkan = .all
-    @Published var presentedCards: [Arkan: [Card]] = [:]
+    @Published var activeTab: Arcana = .all {
+        didSet {
+            previousTab = oldValue
+        }
+    }
+    private(set) var previousTab: Arcana = .all
     
-//    @Published var cellViewModels: [CardCellViewModel]
+    @Published private(set) var presentedCards: [Arcana: [Card]] = [:]
+    @Published private(set) var likedCardIDs: [String] = []
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -22,32 +26,44 @@ final class CardsViewModel: ObservableObject {
     let subTitle: String
     let placeholderText = "Поиск карты"
     let cancelButtonTitle = "Отмена"
+    let noCardText = "Нет карт"
+    
+    private let cards: [Arcana: [Card]]
+    private let allCardsCount: Int
+    private let deckID: String
     
     init(_ cardData: CardsInfoProtocol) {
+        cards = Dictionary(grouping: cardData.cards, by: { $0.arkan })
         title = cardData.title
         subTitle = cardData.subTitle
-        sortCards(cards: Dictionary(grouping: cardData.cards, by: { $0.arkan }))
-//        cellViewModels = presentedCards.map { CardCellViewModel(card: $0.value, storage: <#T##StorageManager#>) }
+        deckID = cardData.id
+        allCardsCount = cardData.cards.count
+        sortCards(cards: cards)
+        fetchLikedCards()
     }
     
-    private func sortCards(cards: [Arkan: [Card]]) {        
+    private func sortCards(cards: [Arcana: [Card]]) {
         $searchText
-            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
-            .sink { [unowned self] newText in
+            .debounce(for: .seconds(0.1), scheduler: RunLoop.main)
+            .sink { [weak self] newText in
+                guard let self = self else { return }
                 if newText.count < 2 {
+                    
                     self.presentedCards = cards
                 } else {
                     Task {
                         let updatedCards = self.getSearchedCards(cards, by: newText)
+                        
                         self.presentedCards = updatedCards
+                        
                     }
                 }
             }
             .store(in: &cancellables)
     }
     
-    private func getSearchedCards(_ cards: [Arkan: [Card]], by text: String) -> [Arkan: [Card]] {
-        var newCards: [Arkan: [Card]] = [:]
+    private func getSearchedCards(_ cards: [Arcana: [Card]], by text: String) -> [Arcana: [Card]] {
+        var newCards: [Arcana: [Card]] = [:]
         
         cards.forEach { arkan, cards in
             let matchingCards = cards.filter { card in
@@ -66,5 +82,49 @@ final class CardsViewModel: ObservableObject {
         }
         return newCards
     }
+    
+    func countAllCards(for arcana: Arcana) -> String {
+        switch arcana {
+        case .all:
+            return "(\(allCardsCount))"
+        default:
+            return "(\(cards[arcana]?.count ?? 0))"
+        }
+    }
+    
+    func fetchLikedCards() {
+        StorageManager.shared.fetch(for: deckID) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let likedCards):
+                likedCardIDs = likedCards.map { $0.id }
+            case .failure(let error):
+                print("Ошибка при загрузке лайкнутых карт: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func addCard(id: String) {
+        StorageManager.shared.create(id: id, deckID: deckID) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let newCard):
+                likedCardIDs.append(newCard.id)
+            case .failure(let error):
+                print("Ошибка при добавлении карты: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func deleteCard(ids: [String]) {
+        StorageManager.shared.delete(ids: ids, deckID: deckID) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success():
+                likedCardIDs.removeAll { ids.contains($0) }
+            case .failure(let error):
+                print("Ошибка при удалении карт: \(error.localizedDescription)")
+            }
+        }
+    }
 }
-

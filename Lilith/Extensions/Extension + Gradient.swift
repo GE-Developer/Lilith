@@ -14,4 +14,10 @@ extension Gradient {
         endPoint: .topLeading
     )
     
+    static let heartGradient = LinearGradient(
+        colors: [Color.navigation.heartOne, Color.navigation.heartTwo],
+        startPoint: .leading,
+        endPoint: .trailing
+    )
+    
 }
