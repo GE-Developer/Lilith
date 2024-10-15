@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Lilith
+
+  Created by Mikhail Bukhrashvili on 15.10.24.
+  
+*/
+
+"hello_world" = "Hello, Мир!";
+"hello" = "Hello, World!";
+"myApplication.hello" = "Привет";

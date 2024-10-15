@@ -24,8 +24,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
     
     let cards: [Card] = [
         Card(
+            id: "RIDER WAITE - СLASSIC - THE FOOL",
             title: "Шут",
-            image: "Шут",
             element: .air,
             arkan: .major,
             astrology: Astrology(planet: .uranus, zodiac: nil, description: nil),
@@ -36,8 +36,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE MAGICIAN",
             title: "Маг",
-            image: "Маг",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: .mercury, zodiac: nil, description: nil),
@@ -48,8 +48,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE HIGH PRIESTESS",
             title: "Верховная Жрица",
-            image: "Верховная Жрица",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: .moon, zodiac: nil, description: nil),
@@ -60,8 +60,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE EMPRESS",
             title: "Императрица",
-            image: "Императрица",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: .venus, zodiac: nil, description: nil),
@@ -72,8 +72,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE EMPEROR",
             title: "Император",
-            image: "Император",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .aries, description: nil),
@@ -84,8 +84,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE HIEROPHANT",
             title: "Иерофант",
-            image: "Иерофант",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .taurus, description: nil),
@@ -96,8 +96,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE LOVERS",
             title: "Влюблённые",
-            image: "Влюблённые",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .gemini, description: nil),
@@ -108,8 +108,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE CHARIOT",
             title: "Колесница",
-            image: "Колесница",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .cancer, description: nil),
@@ -120,8 +120,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
-            title: "Справедливость",
-            image: "Справедливость",
+            id: "RIDER WAITE - СLASSIC - STRENGTH",
+            title: "Сила",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .libra, description: nil),
@@ -132,8 +132,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE HERMIT",
             title: "Отшельник",
-            image: "Отшельник",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .virgo, description: nil),
@@ -144,8 +144,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - WHEEL OF FORTUNE",
             title: "Колесо Фортуны",
-            image: "Колесо Фортуны",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: .jupiter, zodiac: nil, description: nil),
@@ -156,8 +156,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
-            title: "Сила",
-            image: "Сила",
+            id: "RIDER WAITE - СLASSIC - JUSTICE",
+            title: "Справедливость",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .leo, description: nil),
@@ -168,8 +168,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE HANGED MAN",
             title: "Повешенный",
-            image: "Повешенный",
             element: .water,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: nil, description: nil),
@@ -180,8 +180,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - DEATH",
             title: "Смерть",
-            image: "Смерть",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .scorpio, description: nil),
@@ -192,8 +192,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - TEMPERANCE",
             title: "Умеренность",
-            image: "Умеренность",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .sagittarius, description: nil),
@@ -204,8 +204,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE DEVIL",
             title: "Дьявол",
-            image: "Дьявол",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .capricorn, description: nil),
@@ -216,8 +216,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE TOWER",
             title: "Башня",
-            image: "Башня",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: .mars, zodiac: nil, description: nil),
@@ -228,8 +228,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE STAR",
             title: "Звезда",
-            image: "Звезда",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .aquarius, description: nil),
@@ -240,8 +240,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE MOON",
             title: "Луна",
-            image: "Луна",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: nil, zodiac: .pisces, description: nil),
@@ -252,8 +252,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE SUN",
             title: "Солнце",
-            image: "Солнце",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: .sun, zodiac: nil, description: nil),
@@ -264,8 +264,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - JUDGEMENT",
             title: "Суд",
-            image: "Суд",
             element: .fire,
             arkan: .major,
             astrology: Astrology(planet: .pluto, zodiac: nil, description: nil),
@@ -276,8 +276,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - THE WORLD",
             title: "Мир",
-            image: "Мир",
             element: nil,
             arkan: .major,
             astrology: Astrology(planet: .saturn, zodiac: nil, description: nil),
@@ -288,8 +288,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - СLASSIC - ACE OF WANDS",
             title: "Туз Жезлов",
-            image: "Туз Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -300,8 +300,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - TWO OF WANDS",
             title: "Двойка Жезлов",
-            image: "Двойка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -312,8 +312,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - THREE OF WANDS",
             title: "Тройка Жезлов",
-            image: "Тройка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -324,8 +324,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - FOUR OF WANDS",
             title: "Четвёрка Жезлов",
-            image: "Четвёрка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -336,8 +336,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - FIVE OF WANDS",
             title: "Пятёрка Жезлов",
-            image: "Пятёрка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -348,8 +348,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - SIX OF WANDS",
             title: "Шестёрка Жезлов",
-            image: "Шестёрка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -360,8 +360,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - SEVEN OF WANDS",
             title: "Семёрка Жезлов",
-            image: "Семёрка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -372,8 +372,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - EIGHT OF WANDS",
             title: "Восьмёрка Жезлов",
-            image: "Восьмёрка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -384,8 +384,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - NINE OF WANDS",
             title: "Девятка Жезлов",
-            image: "Девятка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -396,8 +396,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - TEN OF WANDS",
             title: "Десятка Жезлов",
-            image: "Десятка Посохов",
             element: .fire,
             arkan: .minor,
             astrology: nil,
@@ -408,8 +408,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - ACE OF SWORDS",
             title: "Туз Мечей",
-            image: "Туз Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -420,8 +420,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - TWO OF SWORDS",
             title: "Двойка Мечей",
-            image: "Двойка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -432,8 +432,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - THREE OF SWORDS",
             title: "Тройка Мечей",
-            image: "Тройка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -444,8 +444,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - FOUR OF SWORDS",
             title: "Четвёрка Мечей",
-            image: "Четвёрка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -456,8 +456,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - FIVE OF SWORDS",
             title: "Пятёрка Мечей",
-            image: "Пятёрка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -468,8 +468,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - SIX OF SWORDS",
             title: "Шестёрка Мечей",
-            image: "Шестёрка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -480,8 +480,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - SEVEN OF SWORDS",
             title: "Семёрка Мечей",
-            image: "Семёрка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -492,8 +492,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - EIGHT OF SWORDS",
             title: "Восьмёрка Мечей",
-            image: "Восьмёрка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -504,8 +504,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - NINE OF SWORDS",
             title: "Девятка Мечей",
-            image: "Девятка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -516,8 +516,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - TEN OF SWORDS",
             title: "Десятка Мечей",
-            image: "Десятка Мечей",
             element: .air,
             arkan: .minor,
             astrology: nil,
@@ -528,8 +528,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - ACE OF CUPS",
             title: "Туз Кубков",
-            image: "Туз Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -540,8 +540,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - TWO OF CUPS",
             title: "Двойка Кубков",
-            image: "Двойка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -552,8 +552,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - THREE OF CUPS",
             title: "Тройка Кубков",
-            image: "Тройка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -564,8 +564,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - FOUR OF CUPS",
             title: "Четвёрка Кубков",
-            image: "Четвёрка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -576,8 +576,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - FIVE OF CUPS",
             title: "Пятёрка Кубков",
-            image: "Пятёрка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -588,8 +588,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - SIX OF CUPS",
             title: "Шестёрка Кубков",
-            image: "Шестёрка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -600,8 +600,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - SEVEN OF CUPS",
             title: "Семёрка Кубков",
-            image: "Семёрка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -612,8 +612,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - EIGHT OF CUPS",
             title: "Восьмёрка Кубков",
-            image: "Восьмёрка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -624,8 +624,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - NINE OF CUPS",
             title: "Девятка Кубков",
-            image: "Девятка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -636,8 +636,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - TEN OF CUPS",
             title: "Десятка Кубков",
-            image: "Десятка Кубков",
             element: .water,
             arkan: .minor,
             astrology: nil,
@@ -648,8 +648,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - ACE OF PENTACLES",
             title: "Туз Пентаклей",
-            image: "Туз Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -660,8 +660,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - TWO OF PENTACLES",
             title: "Двойка Пентаклей",
-            image: "Двойка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -672,8 +672,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - THREE OF PENTACLES",
             title: "Тройка Пентаклей",
-            image: "Тройка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -684,8 +684,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - FOUR OF PENTACLES",
             title: "Четвёрка Пентаклей",
-            image: "Четвёрка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -696,8 +696,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - FIVE OF PENTACLES",
             title: "Пятёрка Пентаклей",
-            image: "Пятёрка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -708,8 +708,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - SIX OF PENTACLES",
             title: "Шестёрка Пентаклей",
-            image: "Шестёрка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -720,8 +720,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - SEVEN OF PENTACLES",
             title: "Семёрка Пентаклей",
-            image: "Семёрка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -732,8 +732,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - EIGHT OF PENTACLES",
             title: "Восьмёрка Пентаклей",
-            image: "Восьмёрка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -744,8 +744,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - NINE OF PENTACLES",
             title: "Девятка Пентаклей",
-            image: "Девятка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -756,8 +756,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - TEN OF PENTACLES",
             title: "Десятка Пентаклей",
-            image: "Десятка Пентаклей",
             element: .earth,
             arkan: .minor,
             astrology: nil,
@@ -768,8 +768,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - PAGE OF WANDS",
             title: "Паж Жезлов",
-            image: "Паж Посохов",
             element: .fire,
             arkan: .court,
             astrology: nil,
@@ -780,8 +780,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - KNIGHT OF WANDS",
             title: "Рыцарь Жезлов",
-            image: "Рыцарь Посохов",
             element: .fire,
             arkan: .court,
             astrology: nil,
@@ -792,8 +792,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - QUEEN OF WANDS",
             title: "Королева Жезлов",
-            image: "Королева Посохов",
             element: .fire,
             arkan: .court,
             astrology: nil,
@@ -804,8 +804,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - KING OF WANDS",
             title: "Король Жезлов",
-            image: "Король Посохов",
             element: .fire,
             arkan: .court,
             astrology: nil,
@@ -816,8 +816,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - PAGE OF SWORDS",
             title: "Паж Мечей",
-            image: "Паж Мечей",
             element: .air,
             arkan: .court,
             astrology: nil,
@@ -828,8 +828,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - KNIGHT OF SWORDS",
             title: "Рыцарь Мечей",
-            image: "Рыцарь Мечей",
             element: .air,
             arkan: .court,
             astrology: nil,
@@ -840,8 +840,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - QUEEN OF SWORDS",
             title: "Королева Мечей",
-            image: "Королева Мечей",
             element: .air,
             arkan: .court,
             astrology: nil,
@@ -852,8 +852,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - KING OF SWORDS",
             title: "Король Мечей",
-            image: "Король Мечей",
             element: .air,
             arkan: .court,
             astrology: nil,
@@ -864,8 +864,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - PAGE OF CUPS",
             title: "Паж Кубков",
-            image: "Паж Кубков",
             element: .water,
             arkan: .court,
             astrology: nil,
@@ -876,8 +876,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - KNIGHT OF CUPS",
             title: "Рыцарь Кубков",
-            image: "Рыцарь Кубков",
             element: .water,
             arkan: .court,
             astrology: nil,
@@ -888,8 +888,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - QUEEN OF CUPS",
             title: "Королева Кубков",
-            image: "Королева Кубков",
             element: .water,
             arkan: .court,
             astrology: nil,
@@ -900,8 +900,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - KING OF CUPS",
             title: "Король Кубков",
-            image: "Король Кубков",
             element: .water,
             arkan: .court,
             astrology: nil,
@@ -912,8 +912,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - PAGE OF PENTACLES",
             title: "Паж Пентаклей",
-            image: "Паж Пентаклей",
             element: .earth,
             arkan: .court,
             astrology: nil,
@@ -924,8 +924,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - KNIGHT OF PENTACLES",
             title: "Рыцарь Пентаклей",
-            image: "Рыцарь Пентаклей",
             element: .earth,
             arkan: .court,
             astrology: nil,
@@ -936,8 +936,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - QUEEN OF PENTACLES",
             title: "Королева Пентаклей",
-            image: "Королева Пентаклей",
             element: .earth,
             arkan: .court,
             astrology: nil,
@@ -948,8 +948,8 @@ final class ClassicCard: CardsInfoProtocol, Identifiable {
             answer: nil
         ),
         Card(
+            id: "RIDER WAITE - CLASSIC - KING OF PENTACLES",
             title: "Король Пентаклей",
-            image: "Король Пентаклей",
             element: .earth,
             arkan: .court,
             astrology: nil,
@@ -970,8 +970,8 @@ final class OtherCard: CardsInfoProtocol {
     
     let cards: [Card] = [
         Card(
+            id: "1",
             title: "Просто очень длинное название",
-            image: "Шут",
             element: .air,
             arkan: .major,
             astrology: Astrology(planet: .uranus, zodiac: nil, description: nil),
@@ -982,8 +982,8 @@ final class OtherCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
+            id: "2",
             title: "El Caballero de Pentáculos",
-            image: "Шут",
             element: .air,
             arkan: .major,
             astrology: Astrology(planet: .uranus, zodiac: nil, description: nil),
@@ -994,8 +994,8 @@ final class OtherCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
+            id: "3",
             title: "Der Ritter der Schwerter",
-            image: "Шут",
             element: .air,
             arkan: .major,
             astrology: Astrology(planet: .venus, zodiac: nil, description: nil),
@@ -1006,8 +1006,8 @@ final class OtherCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
+            id: "4",
             title: "ფენტაკლების დედოფალი",
-            image: "Шут",
             element: .water,
             arkan: .major,
             astrology: Astrology(planet: .mars, zodiac: .pisces, description: nil),
@@ -1018,8 +1018,8 @@ final class OtherCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
+            id: "5",
             title: "Le Chevalier de Pentacles",
-            image: "Шут",
             element: .fire,
             arkan: .major,
             astrology: Astrology(planet: .uranus, zodiac: .aries, description: nil),
@@ -1030,8 +1030,8 @@ final class OtherCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
+            id: "6",
             title: "The Queen of Pentacles",
-            image: "Шут",
             element: .earth,
             arkan: .minor,
             astrology: Astrology(planet: .sun, zodiac: .capricorn, description: nil),
@@ -1042,8 +1042,8 @@ final class OtherCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
+            id: "7",
             title: "Il Cavaliere di Denari",
-            image: "Шут",
             element: .earth,
             arkan: .minor,
             astrology: Astrology(planet: .sun, zodiac: .capricorn, description: nil),
@@ -1054,8 +1054,8 @@ final class OtherCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
+            id: "8",
             title: "ملكة الخماسيات",
-            image: "Шут",
             element: .earth,
             arkan: .court,
             astrology: Astrology(planet: .sun, zodiac: .capricorn, description: nil),
@@ -1066,8 +1066,8 @@ final class OtherCard: CardsInfoProtocol {
             answer: nil
         ),
         Card(
+            id: "9",
             title: "ペンタクルの騎士",
-            image: "Шут",
             element: .earth,
             arkan: .court,
             astrology: Astrology(planet: .sun, zodiac: .capricorn, description: nil),

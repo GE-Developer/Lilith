@@ -33,7 +33,36 @@ struct SwipeableCardCellView: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: cellHeight)
+        
+//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+//            print("onReceive Сработал")
+//            
+//           
+////                if offset != 0 {
+//            isGestureEnabled = false
+//                    offset = 0
+//                    
+//                
+//            }
+//
+//            withAnimation(.default.delay(1)) {
+//                if offset != 0 {
+//                    offset = 0
+//                }
+//                swipedCardID = nil
+//                isGestureEnabled = false
+//            }
+//        }
+//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+//            withAnimation {
+//                
+//                isGestureEnabled = true
+//                swipedCardID = nil
+//            }
+//        }
+        
         .onDisappear {
+            print("onDisappear onDisappear")
             if offset != 0 {
                 offset = 0
             }

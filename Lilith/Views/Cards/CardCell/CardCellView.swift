@@ -44,9 +44,9 @@ struct Cell: View {
     }
     
     private var imageView: some View {
-        Image("Тест1")
+        Image(vm.cardID)
             .resizable()
-            .scaledToFit()
+            .aspectRatio(3/5, contentMode: .fit)
             .clipShape(
                 RoundedRectangle(cornerRadius: 10)
             )

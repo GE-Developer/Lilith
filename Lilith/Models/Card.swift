@@ -8,12 +8,8 @@
 import Foundation
 
 struct Card: Identifiable {
-    var id: String {
-        title
-    }
-    
+    let id: String
     let title: String // Назание
-    let image: String // Фото карты
     let element: Element?
     let arkan: Arcana // Арканы
     let astrology: Astrology? // Астрология

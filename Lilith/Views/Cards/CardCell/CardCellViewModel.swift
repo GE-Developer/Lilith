@@ -17,7 +17,6 @@ final class CardCellViewModel: ObservableObject {
     var isLiked = false
     
     let title: String
-    let imageName: String
     let element: Element?
     let planet: Planet?
     let zodiac: Zodiac?
@@ -26,7 +25,6 @@ final class CardCellViewModel: ObservableObject {
     
     init(card: Card, _ cardsViewModel: CardsViewModel) {
         title = card.title.uppercased()
-        imageName = card.image
         element = card.element
         planet = card.astrology?.planet
         zodiac = card.astrology?.zodiac
