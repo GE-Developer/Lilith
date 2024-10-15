@@ -1,0 +1,143 @@
+/* 
+  Localizable.strings
+  Lilith
+
+  Created by Mikhail Bukhrashvili on 15.10.24.
+  
+*/
+
+// MARK: - UI
+"UI.cancel" = "გაუქმება";
+"UI.searchCard" = "კარტის ძიება";
+"UI.noCard" = "არ არის კარტები";
+
+// MARK: - Arcana
+"Arcana.Singular.major" = "უფროსი არკანი";
+"Arcana.Singular.minor" = "უმცროსი არკანი";
+"Arcana.Singular.court" = "სასამართლო არკანი";
+
+"Arcana.Plural.all" = "ყველა არკანი";
+"Arcana.Plural.major" = "უფროსი არკანები";
+"Arcana.Plural.minor" = "უმცროსი არკანები";
+"Arcana.Plural.court" = "სასამართლო არკანები";
+
+"Arcana.ShortPlural.all" = "ყველა";
+"Arcana.ShortPlural.major" = "უფროსი";
+"Arcana.ShortPlural.minor" = "უმცროსი";
+"Arcana.ShortPlural.court" = "სასამართლო";
+
+// MARK: - Element
+"Element.fire" = "ცეცხლი";
+"Element.water" = "წყალი";
+"Element.earth" = "მიწა";
+"Element.air" = "ჰაერი";
+
+// MARK: - Planet
+"Planet.mercury" = "მერკური";
+"Planet.venus" = "ვენერა";
+"Planet.mars" = "მარსი";
+"Planet.jupiter" = "იუპიტერი";
+"Planet.saturn" = "სატურნი";
+"Planet.uranus" = "ურანი";
+"Planet.neptune" = "ნეპტუნი";
+"Planet.pluto" = "პლუტონი";
+"Planet.sun" = "მზე";
+"Planet.moon" = "მთვარე";
+
+// MARK: - Zodiac
+"Zodiac.aries" = "ვერძი";
+"Zodiac.taurus" = "კურო";
+"Zodiac.gemini" = "ტყუპები";
+"Zodiac.cancer" = "კირჩხიბი";
+"Zodiac.leo" = "ლომი";
+"Zodiac.virgo" = "ქალწული";
+"Zodiac.libra" = "სასწორი";
+"Zodiac.scorpio" = "მორიელი";
+"Zodiac.sagittarius" = "მშვილდოსანი";
+"Zodiac.capricorn" = "თხის რქა";
+"Zodiac.aquarius" = "მერწყული";
+"Zodiac.pisces" = "თევზები";
+
+// MARK: - DECKS
+// MARK: - ClassicCard
+"Deck.ClassicCard.title" = "ტარო კოლოდა";
+"Deck.ClassicCard.subTitle" = "რაიდერ უეიტი";
+
+"Deck.ClassicCard.Card.TheFool.title" = "შუტი";
+"Deck.ClassicCard.Card.TheMagician.title" = "მაგი";
+"Deck.ClassicCard.Card.TheHighPriestess.title" = "უმაღლესი ქურუმი";
+"Deck.ClassicCard.Card.TheEmpress.title" = "იმპერატრიცა";
+"Deck.ClassicCard.Card.TheEmperor.title" = "იმპერატორი";
+"Deck.ClassicCard.Card.TheHierophant.title" = "იეროფანტი";
+"Deck.ClassicCard.Card.TheLovers.title" = "საყვარელები";
+"Deck.ClassicCard.Card.TheChariot.title" = "ურემი";
+"Deck.ClassicCard.Card.Strength.title" = "ძალა";
+"Deck.ClassicCard.Card.TheHermit.title" = "მემაწვრილე";
+"Deck.ClassicCard.Card.WheelOfFortune.title" = "ბედის ბორბალი";
+"Deck.ClassicCard.Card.Justice.title" = "სამართლიანობა";
+"Deck.ClassicCard.Card.TheHangedMan.title" = "ჩამოკიდებული ადამიანი";
+"Deck.ClassicCard.Card.Death.title" = "სიკვდილი";
+"Deck.ClassicCard.Card.Temperance.title" = "ზომიერება";
+"Deck.ClassicCard.Card.TheDevil.title" = "ეშმაკი";
+"Deck.ClassicCard.Card.TheTower.title" = "კოშკი";
+"Deck.ClassicCard.Card.TheStar.title" = "ვარსკვლავი";
+"Deck.ClassicCard.Card.TheMoon.title" = "მთვარე";
+"Deck.ClassicCard.Card.TheSun.title" = "მზე";
+"Deck.ClassicCard.Card.Judgement.title" = "განაჩენი";
+"Deck.ClassicCard.Card.TheWorld.title" = "სამყარო";
+"Deck.ClassicCard.Card.AceOfWands.title" = "ჯოხების ტუზი";
+"Deck.ClassicCard.Card.TwoOfWands.title" = "ჯოხების ორი";
+"Deck.ClassicCard.Card.ThreeOfWands.title" = "ჯოხების სამი";
+"Deck.ClassicCard.Card.FourOfWands.title" = "ჯოხების ოთხი";
+"Deck.ClassicCard.Card.FiveOfWands.title" = "ჯოხების ხუთი";
+"Deck.ClassicCard.Card.SixOfWands.title" = "ჯოხების ექვსი";
+"Deck.ClassicCard.Card.SevenOfWands.title" = "ჯოხების შვიდი";
+"Deck.ClassicCard.Card.EightOfWands.title" = "ჯოხების რვა";
+"Deck.ClassicCard.Card.NineOfWands.title" = "ჯოხების ცხრა";
+"Deck.ClassicCard.Card.TenOfWands.title" = "ჯოხების ათი";
+"Deck.ClassicCard.Card.PageOfWands.title" = "ჯოხების პაჟი";
+"Deck.ClassicCard.Card.KnightOfWands.title" = "ჯოხების რაინდი";
+"Deck.ClassicCard.Card.QueenOfWands.title" = "ჯოხების დედოფალი";
+"Deck.ClassicCard.Card.KingOfWands.title" = "ჯოხების მეფე";
+"Deck.ClassicCard.Card.AceOfCups.title" = "თასების ტუზი";
+"Deck.ClassicCard.Card.TwoOfCups.title" = "თასების ორი";
+"Deck.ClassicCard.Card.ThreeOfCups.title" = "თასების სამი";
+"Deck.ClassicCard.Card.FourOfCups.title" = "თასების ოთხი";
+"Deck.ClassicCard.Card.FiveOfCups.title" = "თასების ხუთი";
+"Deck.ClassicCard.Card.SixOfCups.title" = "თასების ექვსი";
+"Deck.ClassicCard.Card.SevenOfCups.title" = "თასების შვიდი";
+"Deck.ClassicCard.Card.EightOfCups.title" = "თასების რვა";
+"Deck.ClassicCard.Card.NineOfCups.title" = "თასების ცხრა";
+"Deck.ClassicCard.Card.TenOfCups.title" = "თასების ათი";
+"Deck.ClassicCard.Card.PageOfCups.title" = "თასების პაჟი";
+"Deck.ClassicCard.Card.KnightOfCups.title" = "თასების რაინდი";
+"Deck.ClassicCard.Card.QueenOfCups.title" = "თასების დედოფალი";
+"Deck.ClassicCard.Card.KingOfCups.title" = "თასების მეფე";
+"Deck.ClassicCard.Card.AceOfSwords.title" = "ხმლების ტუზი";
+"Deck.ClassicCard.Card.TwoOfSwords.title" = "ხმლების ორი";
+"Deck.ClassicCard.Card.ThreeOfSwords.title" = "ხმლების სამი";
+"Deck.ClassicCard.Card.FourOfSwords.title" = "ხმლების ოთხი";
+"Deck.ClassicCard.Card.FiveOfSwords.title" = "ხმლების ხუთი";
+"Deck.ClassicCard.Card.SixOfSwords.title" = "ხმლების ექვსი";
+"Deck.ClassicCard.Card.SevenOfSwords.title" = "ხმლების შვიდი";
+"Deck.ClassicCard.Card.EightOfSwords.title" = "ხმლების რვა";
+"Deck.ClassicCard.Card.NineOfSwords.title" = "ხმლების ცხრა";
+"Deck.ClassicCard.Card.TenOfSwords.title" = "ხმლების ათი";
+"Deck.ClassicCard.Card.PageOfSwords.title" = "ხმლების პაჟი";
+"Deck.ClassicCard.Card.KnightOfSwords.title" = "ხმლების რაინდი";
+"Deck.ClassicCard.Card.QueenOfSwords.title" = "ხმლების დედოფალი";
+"Deck.ClassicCard.Card.KingOfSwords.title" = "ხმლების მეფე";
+"Deck.ClassicCard.Card.AceOfPentacles.title" = "პენტაკლების ტუზი";
+"Deck.ClassicCard.Card.TwoOfPentacles.title" = "პენტაკლების ორი";
+"Deck.ClassicCard.Card.ThreeOfPentacles.title" = "პენტაკლების სამი";
+"Deck.ClassicCard.Card.FourOfPentacles.title" = "პენტაკლების ოთხი";
+"Deck.ClassicCard.Card.FiveOfPentacles.title" = "პენტაკლების ხუთი";
+"Deck.ClassicCard.Card.SixOfPentacles.title" = "პენტაკლების ექვსი";
+"Deck.ClassicCard.Card.SevenOfPentacles.title" = "პენტაკლების შვიდი";
+"Deck.ClassicCard.Card.EightOfPentacles.title" = "პენტაკლების რვა";
+"Deck.ClassicCard.Card.NineOfPentacles.title" = "პენტაკლების ცხრა";
+"Deck.ClassicCard.Card.TenOfPentacles.title" = "პენტაკლების ათი";
+"Deck.ClassicCard.Card.PageOfPentacles.title" = "პენტაკლების პაჟი";
+"Deck.ClassicCard.Card.KnightOfPentacles.title" = "პენტაკლების რაინდი";
+"Deck.ClassicCard.Card.QueenOfPentacles.title" = "პენტაკლების დედოფალი";
+"Deck.ClassicCard.Card.KingOfPentacles.title" = "პენტაკლების მეფე";

@@ -98,7 +98,7 @@ struct Cell: View {
                         .shadow(color: Color.sign.shadow, radius: 5)
                         .frame(height: cellHeight / 14)
                     
-                    Text(planet.rawValue.uppercased())
+                    Text(planet.name.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
                         .font(.caption2)
                         .fontWeight(.medium)
@@ -119,7 +119,7 @@ struct Cell: View {
                 HStack {
                     ZodiacView(zodiac: zodiac, size: cellHeight / 14)
                     
-                    Text(zodiac.rawValue.uppercased())
+                    Text(zodiac.name.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
                         .font(.caption2)
                         .fontWeight(.medium)
@@ -140,7 +140,7 @@ struct Cell: View {
                 HStack {
                     ElementView(element: element, stroke: 1)
                         .frame(width: cellHeight / 14, height: cellHeight / 14)
-                    Text(element.rawValue.uppercased())
+                    Text(element.name.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
                         .font(.caption2)
                         .fontWeight(.medium)

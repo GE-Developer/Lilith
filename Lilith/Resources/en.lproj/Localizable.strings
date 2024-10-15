@@ -6,6 +6,142 @@
   
 */
 
-"hello_world" = "Hello, World!";
-"hello" = "Hello, World!";
-"myApplication.hello" = "hi";
+//"Filter.description" = "Filter \"%@\"";
+
+// MARK: - UI
+"UI.cancel" = "Cancel";
+"UI.searchCard" = "Search card";
+"UI.noCard" = "No cards found";
+
+// MARK: - Arcana
+"Arcana.Singular.major" = "Major Arcana";
+"Arcana.Singular.minor" = "Minor Arcana";
+"Arcana.Singular.court" = "Court Arcana";
+
+"Arcana.Plural.all" = "All Arcana";
+"Arcana.Plural.major" = "Major Arcana";
+"Arcana.Plural.minor" = "Minor Arcana";
+"Arcana.Plural.court" = "Court Arcana";
+
+"Arcana.ShortPlural.all" = "All";
+"Arcana.ShortPlural.major" = "Major";
+"Arcana.ShortPlural.minor" = "Minor";
+"Arcana.ShortPlural.court" = "Court";
+
+// MARK: - Element
+"Element.fire" = "Fire";
+"Element.water" = "Water";
+"Element.earth" = "Earth";
+"Element.air" = "Air";
+
+// MARK: - Planet
+"Planet.mercury" = "Mercury";
+"Planet.venus" = "Venus";
+"Planet.mars" = "Mars";
+"Planet.jupiter" = "Jupiter";
+"Planet.saturn" = "Saturn";
+"Planet.uranus" = "Uranus";
+"Planet.neptune" = "Neptune";
+"Planet.pluto" = "Pluto";
+"Planet.sun" = "Sun";
+"Planet.moon" = "Moon";
+
+// MARK: - Zodiac
+"Zodiac.aries" = "Aries";
+"Zodiac.taurus" = "Taurus";
+"Zodiac.gemini" = "Gemini";
+"Zodiac.cancer" = "Cancer";
+"Zodiac.leo" = "Leo";
+"Zodiac.virgo" = "Virgo";
+"Zodiac.libra" = "Libra";
+"Zodiac.scorpio" = "Scorpio";
+"Zodiac.sagittarius" = "Sagittarius";
+"Zodiac.capricorn" = "Capricorn";
+"Zodiac.aquarius" = "Aquarius";
+"Zodiac.pisces" = "Pisces";
+
+// MARK: - DECKS
+// MARK: - ClassicCard
+"Deck.ClassicCard.title" = "Tarot Deck";
+"Deck.ClassicCard.subTitle" = "Rider Waite";
+
+"Deck.ClassicCard.Card.TheFool.title" = "The Fool";
+"Deck.ClassicCard.Card.TheMagician.title" = "The Magician";
+"Deck.ClassicCard.Card.TheHighPriestess.title" = "The High Priestess";
+"Deck.ClassicCard.Card.TheEmpress.title" = "The Empress";
+"Deck.ClassicCard.Card.TheEmperor.title" = "The Emperor";
+"Deck.ClassicCard.Card.TheHierophant.title" = "The Hierophant";
+"Deck.ClassicCard.Card.TheLovers.title" = "The Lovers";
+"Deck.ClassicCard.Card.TheChariot.title" = "The Chariot";
+"Deck.ClassicCard.Card.Strength.title" = "Strength";
+"Deck.ClassicCard.Card.TheHermit.title" = "The Hermit";
+"Deck.ClassicCard.Card.WheelOfFortune.title" = "Wheel of Fortune";
+"Deck.ClassicCard.Card.Justice.title" = "Justice";
+"Deck.ClassicCard.Card.TheHangedMan.title" = "The Hanged Man";
+"Deck.ClassicCard.Card.Death.title" = "Death";
+"Deck.ClassicCard.Card.Temperance.title" = "Temperance";
+"Deck.ClassicCard.Card.TheDevil.title" = "The Devil";
+"Deck.ClassicCard.Card.TheTower.title" = "The Tower";
+"Deck.ClassicCard.Card.TheStar.title" = "The Star";
+"Deck.ClassicCard.Card.TheMoon.title" = "The Moon";
+"Deck.ClassicCard.Card.TheSun.title" = "The Sun";
+"Deck.ClassicCard.Card.Judgement.title" = "Judgement";
+"Deck.ClassicCard.Card.TheWorld.title" = "The World";
+"Deck.ClassicCard.Card.AceOfWands.title" = "Ace of Wands";
+"Deck.ClassicCard.Card.TwoOfWands.title" = "Two of Wands";
+"Deck.ClassicCard.Card.ThreeOfWands.title" = "Three of Wands";
+"Deck.ClassicCard.Card.FourOfWands.title" = "Four of Wands";
+"Deck.ClassicCard.Card.FiveOfWands.title" = "Five of Wands";
+"Deck.ClassicCard.Card.SixOfWands.title" = "Six of Wands";
+"Deck.ClassicCard.Card.SevenOfWands.title" = "Seven of Wands";
+"Deck.ClassicCard.Card.EightOfWands.title" = "Eight of Wands";
+"Deck.ClassicCard.Card.NineOfWands.title" = "Nine of Wands";
+"Deck.ClassicCard.Card.TenOfWands.title" = "Ten of Wands";
+"Deck.ClassicCard.Card.PageOfWands.title" = "Page of Wands";
+"Deck.ClassicCard.Card.KnightOfWands.title" = "Knight of Wands";
+"Deck.ClassicCard.Card.QueenOfWands.title" = "Queen of Wands";
+"Deck.ClassicCard.Card.KingOfWands.title" = "King of Wands";
+"Deck.ClassicCard.Card.AceOfCups.title" = "Ace of Cups";
+"Deck.ClassicCard.Card.TwoOfCups.title" = "Two of Cups";
+"Deck.ClassicCard.Card.ThreeOfCups.title" = "Three of Cups";
+"Deck.ClassicCard.Card.FourOfCups.title" = "Four of Cups";
+"Deck.ClassicCard.Card.FiveOfCups.title" = "Five of Cups";
+"Deck.ClassicCard.Card.SixOfCups.title" = "Six of Cups";
+"Deck.ClassicCard.Card.SevenOfCups.title" = "Seven of Cups";
+"Deck.ClassicCard.Card.EightOfCups.title" = "Eight of Cups";
+"Deck.ClassicCard.Card.NineOfCups.title" = "Nine of Cups";
+"Deck.ClassicCard.Card.TenOfCups.title" = "Ten of Cups";
+"Deck.ClassicCard.Card.PageOfCups.title" = "Page of Cups";
+"Deck.ClassicCard.Card.KnightOfCups.title" = "Knight of Cups";
+"Deck.ClassicCard.Card.QueenOfCups.title" = "Queen of Cups";
+"Deck.ClassicCard.Card.KingOfCups.title" = "King of Cups";
+"Deck.ClassicCard.Card.AceOfSwords.title" = "Ace of Swords";
+"Deck.ClassicCard.Card.TwoOfSwords.title" = "Two of Swords";
+"Deck.ClassicCard.Card.ThreeOfSwords.title" = "Three of Swords";
+"Deck.ClassicCard.Card.FourOfSwords.title" = "Four of Swords";
+"Deck.ClassicCard.Card.FiveOfSwords.title" = "Five of Swords";
+"Deck.ClassicCard.Card.SixOfSwords.title" = "Six of Swords";
+"Deck.ClassicCard.Card.SevenOfSwords.title" = "Seven of Swords";
+"Deck.ClassicCard.Card.EightOfSwords.title" = "Eight of Swords";
+"Deck.ClassicCard.Card.NineOfSwords.title" = "Nine of Swords";
+"Deck.ClassicCard.Card.TenOfSwords.title" = "Ten of Swords";
+"Deck.ClassicCard.Card.PageOfSwords.title" = "Page of Swords";
+"Deck.ClassicCard.Card.KnightOfSwords.title" = "Knight of Swords";
+"Deck.ClassicCard.Card.QueenOfSwords.title" = "Queen of Swords";
+"Deck.ClassicCard.Card.KingOfSwords.title" = "King of Swords";
+"Deck.ClassicCard.Card.AceOfPentacles.title" = "Ace of Pentacles";
+"Deck.ClassicCard.Card.TwoOfPentacles.title" = "Two of Pentacles";
+"Deck.ClassicCard.Card.ThreeOfPentacles.title" = "Three of Pentacles";
+"Deck.ClassicCard.Card.FourOfPentacles.title" = "Four of Pentacles";
+"Deck.ClassicCard.Card.FiveOfPentacles.title" = "Five of Pentacles";
+"Deck.ClassicCard.Card.SixOfPentacles.title" = "Six of Pentacles";
+"Deck.ClassicCard.Card.SevenOfPentacles.title" = "Seven of Pentacles";
+"Deck.ClassicCard.Card.EightOfPentacles.title" = "Eight of Pentacles";
+"Deck.ClassicCard.Card.NineOfPentacles.title" = "Nine of Pentacles";
+"Deck.ClassicCard.Card.TenOfPentacles.title" = "Ten of Pentacles";
+"Deck.ClassicCard.Card.PageOfPentacles.title" = "Page of Pentacles";
+"Deck.ClassicCard.Card.KnightOfPentacles.title" = "Knight of Pentacles";
+"Deck.ClassicCard.Card.QueenOfPentacles.title" = "Queen of Pentacles";
+"Deck.ClassicCard.Card.KingOfPentacles.title" = "King of Pentacles";
+
+//"Deck.ClassicCard.Card." = "";

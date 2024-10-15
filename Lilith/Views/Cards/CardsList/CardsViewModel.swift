@@ -24,9 +24,9 @@ final class CardsViewModel: ObservableObject {
     
     let title: String
     let subTitle: String
-    let placeholderText = "Поиск карты"
-    let cancelButtonTitle = "Отмена"
-    let noCardText = "Нет карт"
+    let placeholderText = L10n.Ui.searchCard
+    let cancelButtonTitle = L10n.Ui.cancel
+    let noCardText = L10n.Ui.noCard
     
     private let cards: [Arcana: [Card]]
     private let allCardsCount: Int
@@ -69,11 +69,11 @@ final class CardsViewModel: ObservableObject {
             let matchingCards = cards.filter { card in
                 
                 let isTitleOK = card.title.localizedCaseInsensitiveContains(text)
-                let isPlanetOK = card.astrology?.planet?.rawValue
+                let isPlanetOK = card.astrology?.planet?.name
                     .localizedCaseInsensitiveContains(text) ?? false
-                let isZodiacOK = card.astrology?.zodiac?.rawValue
+                let isZodiacOK = card.astrology?.zodiac?.name
                     .localizedCaseInsensitiveContains(text) ?? false
-                let isElementOK = card.element?.rawValue
+                let isElementOK = card.element?.name
                     .localizedCaseInsensitiveContains(text) ?? false
                 
                 return isTitleOK || isPlanetOK || isZodiacOK || isElementOK

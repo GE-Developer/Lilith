@@ -7,27 +7,34 @@
 
 import Foundation
 
-enum Arcana: String, Hashable, CaseIterable {
-    case all
-    case major = "Старший Аркан"
-    case minor = "Младший Аркан"
-    case court = "Придворный Аркан"
+enum Arcana: Hashable, CaseIterable {
+    case all, major, minor, court
+    
+    var singular: String {
+        switch self {
+        case .all:
+            fatalError("This case (Arcana.all.singular) should not be used")
+        case .major: return L10n.Arcana.Singular.major
+        case .minor: return L10n.Arcana.Singular.minor
+        case .court: return L10n.Arcana.Singular.court
+        }
+    }
     
     var plural: String {
         switch self {
-        case .major: return "Старшие Арканы"
-        case .minor: return "Младшие Арканы"
-        case .court: return "Придворные Арканы"
-        case .all:   return "Все Арканы"
+        case .all:   return L10n.Arcana.Plural.all
+        case .major: return L10n.Arcana.Plural.major
+        case .minor: return L10n.Arcana.Plural.minor
+        case .court: return L10n.Arcana.Plural.court
         }
     }
     
     var shortPlural: String {
         switch self {
-        case .major: return "Старшие"
-        case .minor: return "Младшие"
-        case .court: return "Придворные"
-        case .all:   return "Все"
+        case .all:   return L10n.Arcana.ShortPlural.all
+        case .major: return L10n.Arcana.ShortPlural.major
+        case .minor: return L10n.Arcana.ShortPlural.minor
+        case .court: return L10n.Arcana.ShortPlural.court
         }
     }
     

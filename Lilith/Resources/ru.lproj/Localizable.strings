@@ -6,6 +6,138 @@
   
 */
 
-"hello_world" = "Hello, Мир!";
-"hello" = "Hello, World!";
-"myApplication.hello" = "Привет";
+// MARK: - UI
+"UI.cancel" = "Отмена";
+"UI.searchCard" = "Поиск карты";
+"UI.noCard" = "Нет карт";
+
+// MARK: - Arcana
+"Arcana.Singular.major" = "Старший Аркан";
+"Arcana.Singular.minor" = "Младший Аркан";
+"Arcana.Singular.court" = "Придворный Аркан";
+
+"Arcana.Plural.all" = "Все Арканы";
+"Arcana.Plural.major" = "Старшие Арканы";
+"Arcana.Plural.minor" = "Младшие Арканы";
+"Arcana.Plural.court" = "Придворные Арканы";
+
+"Arcana.ShortPlural.all" = "Все";
+"Arcana.ShortPlural.major" = "Старшие";
+"Arcana.ShortPlural.minor" = "Младшие";
+"Arcana.ShortPlural.court" = "Придворные";
+
+// MARK: - Element
+"Element.fire" = "Огонь";
+"Element.water" = "Вода";
+"Element.earth" = "Земля";
+"Element.air" = "Воздух";
+
+// MARK: - Planet
+"Planet.mercury" = "Меркурий";
+"Planet.venus" = "Венера";
+"Planet.mars" = "Марс";
+"Planet.jupiter" = "Юпитер";
+"Planet.saturn" = "Сатурн";
+"Planet.uranus" = "Уран";
+"Planet.neptune" = "Нептун";
+"Planet.pluto" = "Плутон";
+"Planet.sun" = "Солнце";
+"Planet.moon" = "Луна";
+
+// MARK: - Zodiac
+"Zodiac.aries" = "Овен";
+"Zodiac.taurus" = "Телец";
+"Zodiac.gemini" = "Близнецы";
+"Zodiac.cancer" = "Рак";
+"Zodiac.leo" = "Лев";
+"Zodiac.virgo" = "Дева";
+"Zodiac.libra" = "Весы";
+"Zodiac.scorpio" = "Скорпион";
+"Zodiac.sagittarius" = "Стрелец";
+"Zodiac.capricorn" = "Козерог";
+"Zodiac.aquarius" = "Водолей";
+"Zodiac.pisces" = "Рыбы";
+
+// MARK: - DECKS
+// MARK: - ClassicCard
+"Deck.ClassicCard.title" = "Колода Таро";
+"Deck.ClassicCard.subTitle" = "Райдер Уэйт";
+
+"Deck.ClassicCard.Card.TheFool.title" = "Шут";
+"Deck.ClassicCard.Card.TheMagician.title" = "Маг";
+"Deck.ClassicCard.Card.TheHighPriestess.title" = "Верховная Жрица";
+"Deck.ClassicCard.Card.TheEmpress.title" = "Императрица";
+"Deck.ClassicCard.Card.TheEmperor.title" = "Император";
+"Deck.ClassicCard.Card.TheHierophant.title" = "Иерофант";
+"Deck.ClassicCard.Card.TheLovers.title" = "Влюблённые";
+"Deck.ClassicCard.Card.TheChariot.title" = "Колесница";
+"Deck.ClassicCard.Card.Strength.title" = "Сила";
+"Deck.ClassicCard.Card.TheHermit.title" = "Отшельник";
+"Deck.ClassicCard.Card.WheelOfFortune.title" = "Колесо Фортуны";
+"Deck.ClassicCard.Card.Justice.title" = "Справедливость";
+"Deck.ClassicCard.Card.TheHangedMan.title" = "Повешенный";
+"Deck.ClassicCard.Card.Death.title" = "Смерть";
+"Deck.ClassicCard.Card.Temperance.title" = "Умеренность";
+"Deck.ClassicCard.Card.TheDevil.title" = "Дьявол";
+"Deck.ClassicCard.Card.TheTower.title" = "Башня";
+"Deck.ClassicCard.Card.TheStar.title" = "Звезда";
+"Deck.ClassicCard.Card.TheMoon.title" = "Луна";
+"Deck.ClassicCard.Card.TheSun.title" = "Солнце";
+"Deck.ClassicCard.Card.Judgement.title" = "Суд";
+"Deck.ClassicCard.Card.TheWorld.title" = "Мир";
+"Deck.ClassicCard.Card.AceOfWands.title" = "Туз Жезлов";
+"Deck.ClassicCard.Card.TwoOfWands.title" = "Двойка Жезлов";
+"Deck.ClassicCard.Card.ThreeOfWands.title" = "Тройка Жезлов";
+"Deck.ClassicCard.Card.FourOfWands.title" = "Четвёрка Жезлов";
+"Deck.ClassicCard.Card.FiveOfWands.title" = "Пятёрка Жезлов";
+"Deck.ClassicCard.Card.SixOfWands.title" = "Шестёрка Жезлов";
+"Deck.ClassicCard.Card.SevenOfWands.title" = "Семёрка Жезлов";
+"Deck.ClassicCard.Card.EightOfWands.title" = "Восьмёрка Жезлов";
+"Deck.ClassicCard.Card.NineOfWands.title" = "Девятка Жезлов";
+"Deck.ClassicCard.Card.TenOfWands.title" = "Десятка Жезлов";
+"Deck.ClassicCard.Card.PageOfWands.title" = "Паж Жезлов";
+"Deck.ClassicCard.Card.KnightOfWands.title" = "Рыцарь Жезлов";
+"Deck.ClassicCard.Card.QueenOfWands.title" = "Королева Жезлов";
+"Deck.ClassicCard.Card.KingOfWands.title" = "Король Жезлов";
+"Deck.ClassicCard.Card.AceOfCups.title" = "Туз Кубков";
+"Deck.ClassicCard.Card.TwoOfCups.title" = "Двойка Кубков";
+"Deck.ClassicCard.Card.ThreeOfCups.title" = "Тройка Кубков";
+"Deck.ClassicCard.Card.FourOfCups.title" = "Четвёрка Кубков";
+"Deck.ClassicCard.Card.FiveOfCups.title" = "Пятёрка Кубков";
+"Deck.ClassicCard.Card.SixOfCups.title" = "Шестёрка Кубков";
+"Deck.ClassicCard.Card.SevenOfCups.title" = "Семёрка Кубков";
+"Deck.ClassicCard.Card.EightOfCups.title" = "Восьмёрка Кубков";
+"Deck.ClassicCard.Card.NineOfCups.title" = "Девятка Кубков";
+"Deck.ClassicCard.Card.TenOfCups.title" = "Десятка Кубков";
+"Deck.ClassicCard.Card.PageOfCups.title" = "Паж Кубков";
+"Deck.ClassicCard.Card.KnightOfCups.title" = "Рыцарь Кубков";
+"Deck.ClassicCard.Card.QueenOfCups.title" = "Королева Кубков";
+"Deck.ClassicCard.Card.KingOfCups.title" = "Король Кубков";
+"Deck.ClassicCard.Card.AceOfSwords.title" = "Туз Мечей";
+"Deck.ClassicCard.Card.TwoOfSwords.title" = "Двойка Мечей";
+"Deck.ClassicCard.Card.ThreeOfSwords.title" = "Тройка Мечей";
+"Deck.ClassicCard.Card.FourOfSwords.title" = "Четвёрка Мечей";
+"Deck.ClassicCard.Card.FiveOfSwords.title" = "Пятёрка Мечей";
+"Deck.ClassicCard.Card.SixOfSwords.title" = "Шестёрка Мечей";
+"Deck.ClassicCard.Card.SevenOfSwords.title" = "Семёрка Мечей";
+"Deck.ClassicCard.Card.EightOfSwords.title" = "Восьмёрка Мечей";
+"Deck.ClassicCard.Card.NineOfSwords.title" = "Девятка Мечей";
+"Deck.ClassicCard.Card.TenOfSwords.title" = "Десятка Мечей";
+"Deck.ClassicCard.Card.PageOfSwords.title" = "Паж Мечей";
+"Deck.ClassicCard.Card.KnightOfSwords.title" = "Рыцарь Мечей";
+"Deck.ClassicCard.Card.QueenOfSwords.title" = "Королева Мечей";
+"Deck.ClassicCard.Card.KingOfSwords.title" = "Король Мечей";
+"Deck.ClassicCard.Card.AceOfPentacles.title" = "Туз Пентаклей";
+"Deck.ClassicCard.Card.TwoOfPentacles.title" = "Двойка Пентаклей";
+"Deck.ClassicCard.Card.ThreeOfPentacles.title" = "Тройка Пентаклей";
+"Deck.ClassicCard.Card.FourOfPentacles.title" = "Четвёрка Пентаклей";
+"Deck.ClassicCard.Card.FiveOfPentacles.title" = "Пятёрка Пентаклей";
+"Deck.ClassicCard.Card.SixOfPentacles.title" = "Шестёрка Пентаклей";
+"Deck.ClassicCard.Card.SevenOfPentacles.title" = "Семёрка Пентаклей";
+"Deck.ClassicCard.Card.EightOfPentacles.title" = "Восьмёрка Пентаклей";
+"Deck.ClassicCard.Card.NineOfPentacles.title" = "Девятка Пентаклей";
+"Deck.ClassicCard.Card.TenOfPentacles.title" = "Десятка Пентаклей";
+"Deck.ClassicCard.Card.PageOfPentacles.title" = "Паж Пентаклей";
+"Deck.ClassicCard.Card.KnightOfPentacles.title" = "Рыцарь Пентаклей";
+"Deck.ClassicCard.Card.QueenOfPentacles.title" = "Королева Пентаклей";
+"Deck.ClassicCard.Card.KingOfPentacles.title" = "Король Пентаклей";
