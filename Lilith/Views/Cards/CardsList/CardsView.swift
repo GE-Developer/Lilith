@@ -33,7 +33,7 @@ struct CardsView: View {
                 }
                 .fontDesign(.rounded)
                 Spacer()
-                Text(vm.likedCardIDs.count.formatted())
+//                Text(vm.likedCardIDs.count.formatted())
                 likeButton
                     .padding(.vertical, 8)
                     .rotation3DEffect(
@@ -55,8 +55,10 @@ struct CardsView: View {
                         cancelButtonTitle: vm.cancelButtonTitle,
                         minY: minY
                     )
+                    .offset(y: min(minY / 2, 0))
                     Spacer()
                     SegmentedView(vm: vm)
+                        .offset(y: min(minY, 0))
                 }
                 .disabled(!isGestureEnabled)
                 .opacity(isGestureEnabled ? 1 : 0.6)

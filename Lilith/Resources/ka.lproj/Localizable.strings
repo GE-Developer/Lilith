@@ -60,7 +60,7 @@
 
 // MARK: - DECKS
 // MARK: - ClassicCard
-"Deck.ClassicCard.title" = "ტარო კოლოდა";
+"Deck.ClassicCard.title" = "ტაროს დასტა";
 "Deck.ClassicCard.subTitle" = "რაიდერ უეიტი";
 
 "Deck.ClassicCard.Card.TheFool.title" = "შუტი";

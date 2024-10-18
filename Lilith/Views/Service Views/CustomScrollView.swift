@@ -31,13 +31,11 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
             -minY < headerHeight + 8 + largeNavBarHeight - smallNavBarHeight
         }
     }
-    private var contentMargin: Double {
-        max(headerHeight + 10 + minY, smallNavBarHeight - headerHeight + 10)
-    }
-    
+
     private let headerHeight: Double
     private let withBackButton: Bool
     private let type: ViewType
+    private let viewListType: ViewListType
     
     private let largeNavBarHeight = 70.0
     private let smallNavBarHeight = 50.0
@@ -49,12 +47,14 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
     init(withBackButton: Bool = true,
          headerHight: Double = 0,
          type: ViewType = .withEmptyHeaderView,
+         viewListType: ViewListType = .scrollView,
          @ViewBuilder titleHStackView: @escaping (_ isLarge: Bool) -> Title,
          @ViewBuilder headerView: @escaping (_ minY: CGFloat) -> Header = { _ in EmptyView() },
-         @ViewBuilder scrollView: @escaping () -> Scroll) {
+         @ViewBuilder scrollView: @escaping () -> Scroll = { EmptyView() }) {
         self.titleHStackView = titleHStackView
         self.headerView = headerView
         self.type = type
+        self.viewListType = viewListType
         self.scrollView = scrollView
         self.withBackButton = withBackButton
         self.headerHeight = headerHight
@@ -67,21 +67,40 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
                 .zIndex(0)
             
             scrollTitleView
+                .zIndex(3)
+            
+            
+            headerView(minY)
+                .frame(height: headerHeight)
+                .safeAreaPadding(.top, largeNavBarHeight + 8)
+                .safeAreaPadding(.horizontal)
                 .zIndex(2)
             
             ScrollView {
-                scrollHeaderView
+                geometryReader
                 scrollView()
             }
             .scrollDismissesKeyboard(.immediately)
             .safeAreaPadding(.horizontal)
-            .safeAreaPadding(.top, largeNavBarHeight + 8)
+            .safeAreaPadding(.top, largeNavBarHeight + 8 + headerHeight)
             .scrollTargetBehavior(scrollBehavior)
-            .contentMargins(.top, contentMargin, for: .scrollIndicators)
             .zIndex(1)
             
         }
+        .ignoresSafeArea(.keyboard)
         .toolbarVisibility(.hidden, for: .navigationBar)
+    }
+    
+    private var geometryReader: some View {
+        GeometryReader { proxy in
+            Color.clear
+                .preference(
+                    key: MinYPreferenceKey.self,
+                    value: proxy.frame(in: .scrollView).minY
+                )
+        }
+        .frame(height: 0)
+        .onPreferenceChange(MinYPreferenceKey.self) { minY = $0 }
     }
     
     private var scrollTitleView: some View {
@@ -92,7 +111,7 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
             )
             .ignoresSafeArea()
             .foregroundStyle(Color.main.background)
-            .opacity(isLarge ? 1 : 0.98)
+            .opacity(isLarge ? 1 : 0.96)
             .shadow(color: Color.navigation.navBarShadow, radius: isLarge ? 0 : 5)
             
             HStack {
@@ -107,20 +126,7 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
         .animation(.easeOut, value: isLarge)
     }
     
-    private var scrollHeaderView: some View {
-        GeometryReader { proxy in
-            let localMinY = proxy.frame(in: .scrollView).minY
-            
-            headerView(localMinY)
-                .preference(key: MinYPreferenceKey.self, value: localMinY)
-                .offset(y: min(-localMinY, 0))
-        }
-        .onPreferenceChange(MinYPreferenceKey.self) { newValue in
-            self.minY = newValue
-        }
-        .frame(height: headerHeight)
-        .padding(.bottom, 8)
-    }
+
     
     private var backButton: some View {
         Button(action: { dismiss() }) {
@@ -146,6 +152,11 @@ enum ViewType {
     case withSearchField
     case withLargeHeaderView
     case withEmptyHeaderView
+}
+
+enum ViewListType {
+    case listView
+    case scrollView
 }
 
 // MARK: - Scroll Behavior

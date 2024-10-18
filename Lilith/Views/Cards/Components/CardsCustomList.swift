@@ -22,10 +22,10 @@ struct CardsCustomList: View {
                     if !cardsForSection.isEmpty {
                         ForEach(cardsForSection, id: \.id) { card in
                             
+                            
                             let isDisabled = !isGestureEnabled && swipedCardID != card.id
+                            let vmCell = CardCellViewModel(card: card, vm)
                             Button(action: { print("Нажатие на карту")  }) {
-                                
-                                let vmCell = CardCellViewModel(card: card, vm)
                                 SwipeableCardCellView(
                                     vm: vmCell,
                                     cellHeight: 150,

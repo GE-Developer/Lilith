@@ -31,7 +31,7 @@ struct LilithApp: App {
                     }
                     Divider()
                     LanguagePickerView()
-                    
+
                 }
                 .padding()
             }
@@ -39,8 +39,6 @@ struct LilithApp: App {
         }
     }
 }
-
-
 
 
 

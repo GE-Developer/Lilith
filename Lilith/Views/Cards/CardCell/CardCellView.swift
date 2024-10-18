@@ -45,6 +45,7 @@ struct Cell: View {
     
     private var imageView: some View {
         Image(vm.cardID)
+//        Image("RIDER WAITE - СLASSIC - STRENGTH")
             .resizable()
             .aspectRatio(3/5, contentMode: .fit)
             .clipShape(

@@ -23,7 +23,7 @@ struct SearchView: View {
                 searchField
                 cancelButton
             }
-            .opacity(1 + (minY / 20))
+            .opacity(max(1 + (minY / 20), 0))
             .background { background }
             .onTapGesture { focus = true }
             
@@ -38,16 +38,20 @@ struct SearchView: View {
                 .opacity(1 + (minY / 20))
             }
         }
-        .offset(y: minY < 0 ? -minY / 2 : 0)
+//        .offset(y: minY < 0 ? -minY / 2 : minY)
         .animation(.easeInOut, value: isButtonEnabled)
         .animation(.easeInOut, value: focus)
         
-        //        .onChange(of: minY) {
-//            if max(40 + Double(minY), 0) == 0 {
-//                focus = false
+//        .onChange(of: minY) {
+//            if minY < 0 {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+//                    if focus {
+//                        focus = false // Задержка перед снятием фокуса
+//                    }
+//                }
 //            }
 //        }
-      
+        
     }
     
     private var searchImage: some View {
@@ -70,6 +74,7 @@ struct SearchView: View {
         .foregroundStyle(Color.main.textFieldText)
         .fontDesign(.rounded)
         .fontWeight(.light)
+
     }
     
     private var cancelButton: some View {

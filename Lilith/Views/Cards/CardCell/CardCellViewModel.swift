@@ -35,10 +35,6 @@ final class CardCellViewModel: ObservableObject {
         bindIsLiked()
     }
     
-    deinit {
-        print("deinit --  \(title)")
-    }
-    
     private func bindIsLiked() {
         cardsViewModel.$likedCardIDs
             .map { [weak self] likedCardIDs in

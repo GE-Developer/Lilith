@@ -17,6 +17,7 @@ struct SwipeableCardCellView: View {
     
     var body: some View {
         GeometryReader { geometry in
+            let _ = print("\(vm.title) is being redrawn")
             let geometryWidth = geometry.size.width
             
             ZStack(alignment: .leading) {
@@ -62,7 +63,6 @@ struct SwipeableCardCellView: View {
 //        }
         
         .onDisappear {
-            print("onDisappear onDisappear")
             if offset != 0 {
                 offset = 0
             }
