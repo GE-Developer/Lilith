@@ -2,13 +2,13 @@
 //  CardsView.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 28.09.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI
 
 struct CardsView: View {
-    @StateObject var vm: CardsViewModel
+    @StateObject private var vm: CardsViewModel
     @State private var isGestureEnabled = true
     
     init(_ typeOfDeck: CardsInfoProtocol) {
@@ -16,60 +16,55 @@ struct CardsView: View {
     }
     
     var body: some View {
-        Group {
-            CustomScrollView(headerHight: 90, type: .withSearchField) { isLarge in
-                VStack(alignment: .leading) {
-                    Text(vm.title)
-                        .font(isLarge ? .title : .title3)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color.navigation.title)
-                    if isLarge {
-                        Text(vm.subTitle)
-                            .font(.subheadline)
-                            .fontWeight(.light)
-                            .foregroundStyle(Color.navigation.secondaryTitle)
-                            .transition(.opacity.combined(with: .move(edge: .top)))
-                    }
-                }
-                .fontDesign(.rounded)
-                Spacer()
-//                Text(vm.likedCardIDs.count.formatted())
-                likeButton
-                    .padding(.vertical, 8)
-                    .rotation3DEffect(
-                        Angle(degrees: isLarge ? 0 : 180),
-                        axis: (x: 0, y: 1, z: 0)
-                    )
-                    .animation(.easeInOut(duration: 0.5), value: isLarge)
-                    .disabled(!isGestureEnabled)
-                
-                    .opacity(isGestureEnabled ? 1 : 0.6)
-                    .animation(.easeInOut, value: isGestureEnabled)
-                
-                
-            } headerView: { minY in
-                VStack {
-                    SearchView(
-                        searchText: $vm.searchText,
-                        placeholderText: vm.placeholderText,
-                        cancelButtonTitle: vm.cancelButtonTitle,
-                        minY: minY
-                    )
-                    .offset(y: min(minY / 2, 0))
-                    Spacer()
-                    SegmentedView(vm: vm)
-                        .offset(y: min(minY, 0))
-                }
-                .disabled(!isGestureEnabled)
-                .opacity(isGestureEnabled ? 1 : 0.6)
-                .animation(.easeInOut, value: isGestureEnabled)
-                
-            } scrollView: {
-                CardsCustomList(vm: vm, isGestureEnabled: $isGestureEnabled)
-            }
+        CustomScrollView(headerHight: 90, type: .withSearchField) { isLarge in
+            NavigationBarView(
+                title: vm.title,
+                subTitle: vm.subTitle,
+                isLarge: isLarge,
+                isGestureEnabled: isGestureEnabled
+            )
+        } headerView: { minY in
+            HeaderView(vm: vm, minY: minY, isGestureEnabled: isGestureEnabled)
+        } scrollView: {
+            CardsCustomList(vm: vm, isGestureEnabled: $isGestureEnabled)
         }
-        .onDisappear {
-            print("onDisappear")
+    }
+}
+
+fileprivate struct NavigationBarView: View {
+    let title: String
+    let subTitle: String
+    let isLarge: Bool
+    let isGestureEnabled: Bool
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            mainTitle
+            secondaryTitle
+        }
+        .fontDesign(.rounded)
+        Spacer()
+        //                Text(vm.likedCardIDs.count.formatted())
+        likeButton
+        
+    }
+    
+    private var mainTitle: some View {
+        Text(title)
+            .font(isLarge ? .title : .title3)
+            .fontWeight(.semibold)
+            .foregroundStyle(Color.navigation.title)
+    }
+    
+    private var secondaryTitle: some View {
+        Group {
+            if isLarge {
+                Text(subTitle)
+                    .font(.subheadline)
+                    .fontWeight(.light)
+                    .foregroundStyle(Color.navigation.secondaryTitle)
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+            }
         }
     }
     
@@ -87,5 +82,40 @@ struct CardsView: View {
                     .scaleEffect(0.5)
             }
         }
+        .padding(.vertical, 8)
+        .rotation3DEffect(
+            Angle(degrees: isLarge ? 0 : 180),
+            axis: (x: 0, y: 1, z: 0)
+        )
+        .animation(.easeInOut(duration: 0.5), value: isLarge)
+        .disabled(!isGestureEnabled)
+        
+        .opacity(isGestureEnabled ? 1 : 0.6)
+        .animation(.easeInOut, value: isGestureEnabled)
+    }
+}
+
+fileprivate struct HeaderView: View {
+    @ObservedObject var vm: CardsViewModel
+    
+    let minY: CGFloat
+    let isGestureEnabled: Bool
+    
+    var body: some View {
+        VStack {
+            SearchView(
+                searchText: $vm.searchText,
+                placeholderText: vm.placeholderText,
+                cancelButtonTitle: vm.cancelButtonTitle,
+                minY: minY
+            )
+            .offset(y: min(minY / 2, 0))
+            Spacer()
+            SegmentedView(vm: vm)
+                .offset(y: min(minY, 0))
+        }
+        .disabled(!isGestureEnabled)
+        .opacity(isGestureEnabled ? 1 : 0.6)
+        .animation(.easeInOut, value: isGestureEnabled)
     }
 }

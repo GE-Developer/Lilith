@@ -2,8 +2,8 @@
 //  LilithApp.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 26.08.24.
-//
+//  Created by GE-Developer
+//  26.08.2024
 
 import SwiftUI
 

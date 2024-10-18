@@ -2,7 +2,7 @@
 //  CardCellView.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 01.09.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI
@@ -21,7 +21,7 @@ struct SwipeableCardCellView: View {
             let geometryWidth = geometry.size.width
             
             ZStack(alignment: .leading) {
-                Cell(vm: vm, cellHeight: cellHeight)
+                CardCellView(vm: vm, cellHeight: cellHeight)
                 
                 gestureZone
                     .offset(x: geometryWidth - cellHeight / 2)
@@ -34,34 +34,6 @@ struct SwipeableCardCellView: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: cellHeight)
-        
-//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-//            print("onReceive Сработал")
-//            
-//           
-////                if offset != 0 {
-//            isGestureEnabled = false
-//                    offset = 0
-//                    
-//                
-//            }
-//
-//            withAnimation(.default.delay(1)) {
-//                if offset != 0 {
-//                    offset = 0
-//                }
-//                swipedCardID = nil
-//                isGestureEnabled = false
-//            }
-//        }
-//        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-//            withAnimation {
-//                
-//                isGestureEnabled = true
-//                swipedCardID = nil
-//            }
-//        }
-        
         .onDisappear {
             if offset != 0 {
                 offset = 0
@@ -77,7 +49,7 @@ struct SwipeableCardCellView: View {
     }
     
     private var likeAndDeleteSwipeView: some View {
-        FabulaLikeButton(
+        ExplosiveLikeView(
             isSelected: vm.isLiked,
             image: Image.system.heart,
             imageFill: Image.system.heartFill

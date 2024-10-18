@@ -2,10 +2,8 @@
 //  ClassicCard.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 21.09.24.
+//  Created by GE-Developer
 //
-
-import Foundation
 
 protocol CardsInfoProtocol {
     var id: String { get }
@@ -14,7 +12,6 @@ protocol CardsInfoProtocol {
     var description: String { get }
     var cards: [Card] { get }
 }
-
 
 final class ClassicCard: CardsInfoProtocol, Identifiable {
     let id = "Rider Waite"

@@ -1,8 +1,8 @@
 //
-//  Extension + Color.swift
+//  Color + Extension.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 03.09.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI

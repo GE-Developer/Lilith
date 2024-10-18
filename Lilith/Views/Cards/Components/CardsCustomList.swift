@@ -2,7 +2,7 @@
 //  CustomCardList.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 13.09.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI

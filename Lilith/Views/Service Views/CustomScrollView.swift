@@ -2,7 +2,7 @@
 //  CustomScrollView.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 24.09.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI
@@ -35,7 +35,6 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
     private let headerHeight: Double
     private let withBackButton: Bool
     private let type: ViewType
-    private let viewListType: ViewListType
     
     private let largeNavBarHeight = 70.0
     private let smallNavBarHeight = 50.0
@@ -47,14 +46,12 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
     init(withBackButton: Bool = true,
          headerHight: Double = 0,
          type: ViewType = .withEmptyHeaderView,
-         viewListType: ViewListType = .scrollView,
          @ViewBuilder titleHStackView: @escaping (_ isLarge: Bool) -> Title,
          @ViewBuilder headerView: @escaping (_ minY: CGFloat) -> Header = { _ in EmptyView() },
          @ViewBuilder scrollView: @escaping () -> Scroll = { EmptyView() }) {
         self.titleHStackView = titleHStackView
         self.headerView = headerView
         self.type = type
-        self.viewListType = viewListType
         self.scrollView = scrollView
         self.withBackButton = withBackButton
         self.headerHeight = headerHight
@@ -152,11 +149,6 @@ enum ViewType {
     case withSearchField
     case withLargeHeaderView
     case withEmptyHeaderView
-}
-
-enum ViewListType {
-    case listView
-    case scrollView
 }
 
 // MARK: - Scroll Behavior

@@ -2,7 +2,7 @@
 //  SegmentedView.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 13.09.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI
@@ -10,8 +10,6 @@ import SwiftUI
 struct SegmentedView: View {
     @ObservedObject var vm: CardsViewModel
     @State private var isButtonDisabled = false
-//    @Binding var activeTab: Arcana
-//    @Binding var isSegmentTapped: Bool
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -24,6 +22,21 @@ struct SegmentedView: View {
         .shadow(color: Color.main.viewShadow, radius: 3)
     }
     
+    private func didTapped(on arkan: Arcana) {
+        guard vm.activeTab != arkan else { return }
+        
+        withAnimation(.easeOut) {
+            vm.activeTab = arkan
+        }
+        isButtonDisabled = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+            isButtonDisabled = false
+        }
+    }
+}
+
+extension SegmentedView {
     @ViewBuilder
     private func segmentButtonPlaced(for currentArkan: Arcana) -> some View {
         Button {
@@ -59,24 +72,9 @@ struct SegmentedView: View {
                 )
             )
     }
-    
-    private func didTapped(on arkan: Arcana) {
-        guard vm.activeTab != arkan else { return }
-//        isSegmentTapped = true
-
-        withAnimation(.easeOut) {
-            vm.activeTab = arkan
-        }
-        isButtonDisabled = true
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-            isButtonDisabled = false
-//            isSegmentTapped = false
-        }
-    }
 }
 
-struct NoDimButtonStyle: ButtonStyle {
+fileprivate struct NoDimButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
     }

@@ -1,8 +1,8 @@
 //
-//  CardsListViewModel.swift
+//  CardsViewModel.swift
 //  Lilith
 //
-//  Created by GE-Developer.
+//  Created by GE-Developer
 
 import Foundation
 import Combine
@@ -15,10 +15,10 @@ final class CardsViewModel: ObservableObject {
             previousTab = oldValue
         }
     }
-    private(set) var previousTab: Arcana = .all
-    
     @Published private(set) var presentedCards: [Arcana: [Card]] = [:]
     @Published private(set) var likedCardIDs: [String] = []
+    
+    private(set) var previousTab: Arcana = .all
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -40,47 +40,6 @@ final class CardsViewModel: ObservableObject {
         allCardsCount = cardData.cards.count
         sortCards(cards: cards)
         fetchLikedCards()
-    }
-    
-    private func sortCards(cards: [Arcana: [Card]]) {
-        $searchText
-            .debounce(for: .seconds(0.1), scheduler: RunLoop.main)
-            .sink { [weak self] newText in
-                guard let self = self else { return }
-                if newText.count < 2 {
-                    
-                    self.presentedCards = cards
-                } else {
-                    Task {
-                        let updatedCards = self.getSearchedCards(cards, by: newText)
-                        
-                        self.presentedCards = updatedCards
-                        
-                    }
-                }
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func getSearchedCards(_ cards: [Arcana: [Card]], by text: String) -> [Arcana: [Card]] {
-        var newCards: [Arcana: [Card]] = [:]
-        
-        cards.forEach { arkan, cards in
-            let matchingCards = cards.filter { card in
-                
-                let isTitleOK = card.title.localizedCaseInsensitiveContains(text)
-                let isPlanetOK = card.astrology?.planet?.name
-                    .localizedCaseInsensitiveContains(text) ?? false
-                let isZodiacOK = card.astrology?.zodiac?.name
-                    .localizedCaseInsensitiveContains(text) ?? false
-                let isElementOK = card.element?.name
-                    .localizedCaseInsensitiveContains(text) ?? false
-                
-                return isTitleOK || isPlanetOK || isZodiacOK || isElementOK
-            }
-            newCards[arkan] = matchingCards
-        }
-        return newCards
     }
     
     func countAllCards(for arcana: Arcana) -> String {
@@ -126,5 +85,43 @@ final class CardsViewModel: ObservableObject {
                 print("Ошибка при удалении карт: \(error.localizedDescription)")
             }
         }
+    }
+    
+    private func sortCards(cards: [Arcana: [Card]]) {
+        $searchText
+            .debounce(for: .seconds(0.1), scheduler: RunLoop.main)
+            .sink { [weak self] newText in
+                guard let self = self else { return }
+                if newText.count < 2 {
+                    self.presentedCards = cards
+                } else {
+                    Task {
+                        let updatedCards = self.getSearchedCards(cards, by: newText)
+                        self.presentedCards = updatedCards
+                    }
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func getSearchedCards(_ cards: [Arcana: [Card]], by text: String) -> [Arcana: [Card]] {
+        var newCards: [Arcana: [Card]] = [:]
+        
+        cards.forEach { arkan, cards in
+            let matchingCards = cards.filter { card in
+                
+                let isTitleOK = card.title.localizedCaseInsensitiveContains(text)
+                let isPlanetOK = card.astrology?.planet?.name
+                    .localizedCaseInsensitiveContains(text) ?? false
+                let isZodiacOK = card.astrology?.zodiac?.name
+                    .localizedCaseInsensitiveContains(text) ?? false
+                let isElementOK = card.element?.name
+                    .localizedCaseInsensitiveContains(text) ?? false
+                
+                return isTitleOK || isPlanetOK || isZodiacOK || isElementOK
+            }
+            newCards[arkan] = matchingCards
+        }
+        return newCards
     }
 }

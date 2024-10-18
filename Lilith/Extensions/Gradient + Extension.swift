@@ -1,23 +1,22 @@
 //
-//  Extension + Gradient.swift
+//  Gradient + Extension.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 04.10.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI
 
 extension Gradient {
     static let cellGradient = LinearGradient(
-        colors: [Color.navigation.cellOne, Color.navigation.cellTwo],
+        colors: [.navigation.cellOne, .navigation.cellTwo],
         startPoint: .bottomTrailing,
         endPoint: .topLeading
     )
     
     static let heartGradient = LinearGradient(
-        colors: [Color.navigation.heartOne, Color.navigation.heartTwo],
+        colors: [.navigation.heartOne, .navigation.heartTwo],
         startPoint: .leading,
         endPoint: .trailing
     )
-    
 }

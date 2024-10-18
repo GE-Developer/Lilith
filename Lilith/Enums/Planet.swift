@@ -2,12 +2,10 @@
 //  Planet.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 11.10.24.
+//  Created by GE-Developer
 //
 
-import Foundation
-
-enum Planet: Hashable, CaseIterable {
+enum Planet {
     case mercury
     case venus
     case mars

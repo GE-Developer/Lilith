@@ -2,13 +2,14 @@
 //  Element.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 11.10.24.
+//  Created by GE-Developer
 //
 
-import Foundation
-
-enum Element: Hashable, CaseIterable {
-    case fire, water, earth, air
+enum Element {
+    case fire
+    case water
+    case earth
+    case air
     
     var name: String {
         switch self {

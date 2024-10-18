@@ -2,19 +2,16 @@
 //  CardCellViewModel.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 16.09.24.
+//  Created by GE-Developer
 //
 
-import Foundation
 import Combine
 
 @MainActor
 final class CardCellViewModel: ObservableObject {
-    
-    private var cancellables = Set<AnyCancellable>()
     unowned var cardsViewModel: CardsViewModel
-    
-    var isLiked = false
+    private(set) var isLiked = false
+    private var cancellables = Set<AnyCancellable>()
     
     let title: String
     let element: Element?
@@ -24,12 +21,12 @@ final class CardCellViewModel: ObservableObject {
     let cardID: String
     
     init(card: Card, _ cardsViewModel: CardsViewModel) {
+        self.cardsViewModel = cardsViewModel
         title = card.title.uppercased()
         element = card.element
         planet = card.astrology?.planet
         zodiac = card.astrology?.zodiac
         romanNumber = card.numerology.romanNumber
-        self.cardsViewModel = cardsViewModel
         cardID = card.id
         
         bindIsLiked()

@@ -1,8 +1,8 @@
 //
-//  Extension + View.swift
+//  View + Extension.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 12.10.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI

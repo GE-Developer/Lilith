@@ -2,7 +2,7 @@
 //  LikedCard.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 09.10.24.
+//  Created by GE-Developer
 //
 
 import SwiftData

@@ -2,18 +2,18 @@
 //  Arcana.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 11.10.24.
+//  Created by GE-Developer
 //
 
-import Foundation
-
-enum Arcana: Hashable, CaseIterable {
-    case all, major, minor, court
+enum Arcana: CaseIterable {
+    case all
+    case major
+    case minor
+    case court
     
     var singular: String {
         switch self {
-        case .all:
-            fatalError("This case (Arcana.all.singular) should not be used")
+        case .all: fatalError("This case (Arcana.all.singular) should not be used!")
         case .major: return L10n.Arcana.Singular.major
         case .minor: return L10n.Arcana.Singular.minor
         case .court: return L10n.Arcana.Singular.court

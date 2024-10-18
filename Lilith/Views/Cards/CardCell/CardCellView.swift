@@ -2,12 +2,12 @@
 //  CardCellView.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 13.10.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI
 
-struct Cell: View {
+struct CardCellView: View {
     @ObservedObject var vm: CardCellViewModel
     let cellHeight: Double
     

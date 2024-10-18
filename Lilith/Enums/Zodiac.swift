@@ -2,12 +2,10 @@
 //  Zodiac.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 11.10.24.
+//  Created by GE-Developer
 //
 
-import Foundation
-
-enum Zodiac: String, Hashable, CaseIterable {
+enum Zodiac: String {
     case aries
     case taurus
     case gemini

@@ -1,11 +1,9 @@
 //
-//  Full Card Model.swift
-//  Tarot
+//  Card.swift
+//  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 25.08.24.
+//  Created by GE-Developer
 //
-
-import Foundation
 
 struct Card: Identifiable {
     let id: String
@@ -19,8 +17,6 @@ struct Card: Identifiable {
     let personalityCharacterization: [PersonalityCharacterization]? // Хар. личности
     let answer: String?
 }
-
-// Доп модели -----
 
 struct Astrology {
     let name = "Астрология"

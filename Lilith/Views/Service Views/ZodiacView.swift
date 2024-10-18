@@ -2,7 +2,7 @@
 //  ZodiacView.swift
 //  Lilith
 //
-//  Created by Mikhail Bukhrashvili on 05.09.24.
+//  Created by GE-Developer
 //
 
 import SwiftUI
