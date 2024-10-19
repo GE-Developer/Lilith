@@ -93,11 +93,7 @@ struct CardCellView: View {
         Group {
             if let planet = vm.planet {
                 HStack {
-                    Circle()
-                        .stroke(lineWidth: 2)
-                        .fill(Color.sign.planet)
-                        .shadow(color: Color.sign.shadow, radius: 5)
-                        .frame(height: cellHeight / 14)
+                    PlanetView(planet: planet, size: cellHeight / 12)
                     
                     Text(planet.name.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
@@ -118,7 +114,7 @@ struct CardCellView: View {
         Group {
             if let zodiac = vm.zodiac {
                 HStack {
-                    ZodiacView(zodiac: zodiac, size: cellHeight / 14)
+                    ZodiacView(zodiac: zodiac, size: cellHeight / 12)
                     
                     Text(zodiac.name.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
@@ -140,7 +136,7 @@ struct CardCellView: View {
             if let element = vm.element {
                 HStack {
                     ElementView(element: element, stroke: 1)
-                        .frame(width: cellHeight / 14, height: cellHeight / 14)
+                        .frame(width: cellHeight / 12, height: cellHeight / 12)
                     Text(element.name.uppercased())
                         .foregroundStyle(Color.main.secondaryText)
                         .font(.caption2)

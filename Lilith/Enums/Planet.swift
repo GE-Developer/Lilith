@@ -5,9 +5,10 @@
 //  Created by GE-Developer
 //
 
-enum Planet {
+enum Planet: String {
     case mercury
     case venus
+    case earth
     case mars
     case jupiter
     case saturn
@@ -21,6 +22,7 @@ enum Planet {
         switch self {
         case .mercury: return L10n.Planet.mercury
         case .venus: return L10n.Planet.venus
+        case .earth: return L10n.Planet.earth
         case .mars: return L10n.Planet.mars
         case .jupiter: return L10n.Planet.jupiter
         case .saturn: return L10n.Planet.saturn

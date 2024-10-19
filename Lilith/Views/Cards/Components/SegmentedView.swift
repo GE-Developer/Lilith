@@ -12,21 +12,24 @@ struct SegmentedView: View {
     @State private var isButtonDisabled = false
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 12) {
-                ForEach(Arcana.allCases, id: \.self) { arkan in
-                    segmentButtonPlaced(for: arkan)
+        ScrollViewReader { scrollProxy in
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    ForEach(Arcana.allCases, id: \.self) { arkan in
+                        segmentButtonPlaced(for: arkan, scrollProxy: scrollProxy)
+                    }
                 }
             }
+            .shadow(color: Color.main.viewShadow, radius: 3)
         }
-        .shadow(color: Color.main.viewShadow, radius: 3)
     }
     
-    private func didTapped(on arkan: Arcana) {
+    private func didTapped(on arkan: Arcana, scrollProxy: ScrollViewProxy) {
         guard vm.activeTab != arkan else { return }
         
-        withAnimation(.easeOut) {
+        withAnimation(.easeInOut) {
             vm.activeTab = arkan
+            scrollProxy.scrollTo(arkan, anchor: .center) // Прокручиваем до выбранного элемента
         }
         isButtonDisabled = true
 
@@ -38,9 +41,9 @@ struct SegmentedView: View {
 
 extension SegmentedView {
     @ViewBuilder
-    private func segmentButtonPlaced(for currentArkan: Arcana) -> some View {
+    private func segmentButtonPlaced(for currentArkan: Arcana, scrollProxy: ScrollViewProxy) -> some View {
         Button {
-            didTapped(on: currentArkan)
+            didTapped(on: currentArkan, scrollProxy: scrollProxy)
         } label: {
             Text(currentArkan.shortPlural + " " + vm.countAllCards(for: currentArkan))
                 .font(.callout)
@@ -56,6 +59,7 @@ extension SegmentedView {
         .background { setupButton(currentArkan: currentArkan) }
         .buttonStyle(NoDimButtonStyle())
         .disabled(isButtonDisabled)
+        .id(currentArkan) // Присваиваем ID каждой кнопке для прокрутки
     }
     
     @ViewBuilder

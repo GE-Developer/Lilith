@@ -373,6 +373,8 @@ internal enum L10n {
     internal static let water = L10n.tr("Localizable", "Element.water", fallback: "Water")
   }
   internal enum Planet {
+    /// Earth
+    internal static let earth = L10n.tr("Localizable", "Planet.earth", fallback: "Earth")
     /// Jupiter
     internal static let jupiter = L10n.tr("Localizable", "Planet.jupiter", fallback: "Jupiter")
     /// Mars

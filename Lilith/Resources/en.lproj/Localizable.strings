@@ -37,6 +37,7 @@
 // MARK: - Planet
 "Planet.mercury" = "Mercury";
 "Planet.venus" = "Venus";
+"Planet.earth" = "Earth";
 "Planet.mars" = "Mars";
 "Planet.jupiter" = "Jupiter";
 "Planet.saturn" = "Saturn";

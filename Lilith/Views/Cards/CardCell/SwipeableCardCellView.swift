@@ -17,7 +17,6 @@ struct SwipeableCardCellView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            let _ = print("\(vm.title) is being redrawn")
             let geometryWidth = geometry.size.width
             
             ZStack(alignment: .leading) {
@@ -25,7 +24,7 @@ struct SwipeableCardCellView: View {
                 
                 gestureZone
                     .offset(x: geometryWidth - cellHeight / 2)
-                    .gesture(gest)
+                    .gesture(gestureAction)
                 
                 likeAndDeleteSwipeView
                     .offset(x: geometryWidth + 16 - offset / 2.25 - cellHeight / 7)
@@ -40,13 +39,7 @@ struct SwipeableCardCellView: View {
             }
         }
     }
-    
-    private var gestureZone: some View {
-        Circle()
-            .frame(height: cellHeight / 2)
-            .foregroundStyle(.clear)
-            .contentShape(Circle())
-    }
+
     
     private var likeAndDeleteSwipeView: some View {
         ExplosiveLikeView(
@@ -58,56 +51,66 @@ struct SwipeableCardCellView: View {
         .scaleEffect(max(min(0.1 - offset / 100, 1), 0.0001))
         .opacity(max(min(0 - Double(offset) / 100, 1), 0))
     }
-    
-    private var gest: some Gesture {
-        DragGesture(minimumDistance: 3, coordinateSpace: .global)
-            .onChanged { gesture in
-                    isGestureEnabled = false
-                    swipedCardID = vm.cardID
-                    let xGesture = gesture.translation.width
-                    let xOffset = max(xGesture, -70 + xGesture / 3)
-                    
-                    
-                    
-                    withAnimation(.linear(duration: 0.05)) {
-                        offset = max(min(xOffset, 0), -350)
-                    }
-            }
-            .onEnded { _ in
-                    if offset < -40 {
-                        
-                        withAnimation(.easeInOut(duration: 0.2)) {
-                            offset = -110
-                        } completion: {
-                            if vm.isLiked {
-                                vm.cardsViewModel.deleteCard(ids: [vm.cardID])
-                            } else {
-                                vm.cardsViewModel.addCard(id: vm.cardID)
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                                withAnimation(.easeInOut(duration: 0.3)) {
-                                    offset = 0
-                                } completion: {
-                                    isGestureEnabled = true
-                                    swipedCardID = nil
-                                }
-                            }
-                        }
-                        
-                    } else {
-                        withAnimation(.easeOut(duration: 0.5)) {
-                            offset = 0
-                        } completion: {
-                            isGestureEnabled = true
-                            swipedCardID = nil
-                        }
-                    }
-            }
-    }
 }
 
-
+// MARK: - Work with gestures
+extension SwipeableCardCellView {
+    private var gestureZone: some View {
+        Circle()
+            .frame(height: cellHeight / 2)
+            .foregroundStyle(.clear)
+            .contentShape(Circle())
+    }
+    
+    private var gestureAction: some Gesture {
+        DragGesture(minimumDistance: 3, coordinateSpace: .global)
+            .onChanged { gestureChange($0) }
+            .onEnded { gestureEnded($0) }
+    }
+    
+    private func gestureChange(_ gesture: DragGesture.Value) {
+        isGestureEnabled = false
+        swipedCardID = vm.cardID
+        let xGesture = gesture.translation.width
+        let xOffset = max(xGesture, -70 + xGesture / 3)
+        
+        withAnimation(.linear(duration: 0.05)) {
+            offset = max(min(xOffset, 0), -350)
+        }
+    }
+    
+    private func gestureEnded(_ gesture: DragGesture.Value) {
+        if offset < -40 {
+            
+            withAnimation(.easeInOut(duration: 0.2)) {
+                offset = -110
+            } completion: {
+                if vm.isLiked {
+                    vm.cardsViewModel.deleteCard(ids: [vm.cardID])
+                } else {
+                    vm.cardsViewModel.addCard(id: vm.cardID)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        offset = 0
+                    } completion: {
+                        isGestureEnabled = true
+                        swipedCardID = nil
+                    }
+                }
+            }
+            
+        } else {
+            withAnimation(.easeOut(duration: 0.5)) {
+                offset = 0
+            } completion: {
+                isGestureEnabled = true
+                swipedCardID = nil
+            }
+        }
+    }
+}
 

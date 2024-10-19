@@ -1,5 +1,5 @@
 //
-//  ZodiacView.swift
+//  PlanetView.swift
 //  Lilith
 //
 //  Created by GE-Developer
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct ZodiacView: View {
-    let zodiac: Zodiac
+struct PlanetView: View {
+    let planet: Planet
     let size: Double
     
     var body: some View {
-        Image(zodiac.rawValue)
+        Image(planet.rawValue.capitalized)
             .renderingMode(.template)
             .resizable()
             .scaledToFit()
-            .foregroundStyle(Color.sign.zodiac)
+            .foregroundStyle(Color.sign.planet)
             .frame(height: size)
     }
 }

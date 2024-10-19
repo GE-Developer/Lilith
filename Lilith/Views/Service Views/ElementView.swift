@@ -38,7 +38,6 @@ struct ElementView: View {
             .stroke(lineWidth: stroke)
             .offset(y: -BY/2)
             .foregroundStyle(setColor())
-            .shadow(color: Color.sign.shadow, radius: 5)
             .rotationEffect(setRotationDegrees())
         }
     }
