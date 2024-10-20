@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CardsView: View {
     @StateObject private var vm: CardsViewModel
-    @State private var isGestureEnabled = true
     
+    @State private var isGestureEnabled = true
     @State private var infoPresented = false
     
     init(_ typeOfDeck: CardsInfoProtocol) {
@@ -21,12 +21,12 @@ struct CardsView: View {
         Group {
             CustomScrollView(headerHight: 90, type: .withSearchField) { isLarge in
                 NavigationBarView(
+                    infoPresented: $infoPresented,
                     title: vm.title,
                     subTitle: vm.subTitle,
                     isLarge: isLarge,
                     isGestureEnabled: isGestureEnabled,
-                    cardCount: vm.likedCardIDs.count.formatted(),
-                    infoPresented: $infoPresented
+                    cardCount: vm.countOfLikedCards
                 )
             } headerView: { minY in
                 HeaderView(vm: vm, minY: minY, isGestureEnabled: isGestureEnabled)
@@ -38,13 +38,15 @@ struct CardsView: View {
 }
 
 fileprivate struct NavigationBarView: View {
+    @Binding var infoPresented: Bool
+    
+    @State private var countBallIsPresented = false
+    
     let title: String
     let subTitle: String
     let isLarge: Bool
     let isGestureEnabled: Bool
     let cardCount: String
-    @Binding var infoPresented: Bool
-    @State private var countBallIsPresented = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -54,8 +56,6 @@ fileprivate struct NavigationBarView: View {
         .fontDesign(.rounded)
         Spacer()
         infoButton
-            .padding(.horizontal, 6)
-            .onChange(of: cardCount) { refreshCountBall($0, $1) }
         likeButton
     }
     
@@ -92,10 +92,12 @@ fileprivate struct NavigationBarView: View {
                     .scaleEffect(0.5)
                 
                 countBall
+                
             }
             .aspectRatio(1/1, contentMode: .fit)
         }
         .padding(.vertical, isLarge ? 16 : 8)
+        .padding(.horizontal, 6)
         .disabled(!isGestureEnabled)
         .opacity(isGestureEnabled ? 1 : 0.6)
         .animation(.easeInOut, value: isGestureEnabled)
@@ -116,9 +118,9 @@ fileprivate struct NavigationBarView: View {
             .aspectRatio(1/1, contentMode: .fit)
         }
         .padding(.vertical, isLarge ? 16 : 8)
-        .disabled(!isGestureEnabled)
         .opacity(isLarge ? isGestureEnabled ? 1 : 0.6 : 0)
         .scaleEffect(isLarge ? 1 : 0.001)
+        .disabled(!isGestureEnabled)
         .animation(.easeInOut, value: isGestureEnabled)
     }
     
@@ -147,6 +149,7 @@ fileprivate struct NavigationBarView: View {
         .opacity(countBallIsPresented ? 1 : 0)
         .scaleEffect(countBallIsPresented ? 1 : 0.001)
         .animation(.easeOut, value: countBallIsPresented)
+        .onChange(of: cardCount) { refreshCountBall($0, $1) }
     }
     
     private func refreshCountBall(_ oldValue: String, _ newValue: String) {

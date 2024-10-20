@@ -16,8 +16,12 @@ final class CardsViewModel: ObservableObject {
         }
     }
     @Published private(set) var presentedCards: [Arcana: [Card]] = [:]
-    @Published private(set) var likedCardIDs: [String] = []
-    
+    @Published private(set) var likedCardIDs: [String] = [] {
+        didSet {
+            likedCardCount()
+        }
+    }
+    private(set) var countOfLikedCards = ""
     private(set) var previousTab: Arcana = .all
     
     private var cancellables = Set<AnyCancellable>()
@@ -40,6 +44,7 @@ final class CardsViewModel: ObservableObject {
         allCardsCount = cardData.cards.count
         sortCards(cards: cards)
         fetchLikedCards()
+        likedCardCount()
     }
     
     func countAllCards(for arcana: Arcana) -> String {
@@ -123,5 +128,9 @@ final class CardsViewModel: ObservableObject {
             newCards[arkan] = matchingCards
         }
         return newCards
+    }
+    
+    private func likedCardCount() {
+        countOfLikedCards = likedCardIDs.count.formatted()
     }
 }

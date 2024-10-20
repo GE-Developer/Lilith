@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     @State private var minY = 0.0
     
@@ -31,7 +31,7 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
             -minY < headerHeight + 8 + largeNavBarHeight - smallNavBarHeight
         }
     }
-
+    
     private let headerHeight: Double
     private let withBackButton: Bool
     private let type: ViewType
@@ -123,7 +123,7 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
         .animation(.easeOut, value: isLarge)
     }
     
-
+    
     
     private var backButton: some View {
         Button(action: { dismiss() }) {
@@ -136,23 +136,15 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
 }
 
 // MARK: - Preference Key
-#warning("Проверить: PreferenceKey")
-struct MinYPreferenceKey: PreferenceKey {
+fileprivate struct MinYPreferenceKey: PreferenceKey {
     static let defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
     }
 }
 
-// MARK: - Enum
-enum ViewType {
-    case withSearchField
-    case withLargeHeaderView
-    case withEmptyHeaderView
-}
-
 // MARK: - Scroll Behavior
-struct CustomScrollTargetBehaviourForScrollView: ScrollTargetBehavior {
+fileprivate struct CustomScrollTargetBehaviourForScrollView: ScrollTargetBehavior {
     let type: ViewType
     let minY: Double
     let headerHeight: Double
@@ -196,4 +188,11 @@ struct CustomScrollTargetBehaviourForScrollView: ScrollTargetBehavior {
             }
         }
     }
+}
+
+// MARK: - Enum
+enum ViewType {
+    case withSearchField
+    case withLargeHeaderView
+    case withEmptyHeaderView
 }

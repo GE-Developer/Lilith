@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @Binding var searchText: String
     @FocusState var focus: Bool
+    
     @State private var isButtonEnabled = false
     
     let placeholderText: String
@@ -21,37 +22,18 @@ struct SearchView: View {
             HStack(spacing: 0) {
                 searchImage
                 searchField
-                cancelButton
+                deleteButton
             }
             .opacity(max(1 + (minY / 20), 0))
             .background { background }
             .onTapGesture { focus = true }
             
             if isButtonEnabled {
-                Button(action: { focus = false }) {
-                    Text(cancelButtonTitle)
-                        .foregroundStyle(Color.navigation.cancelButton)
-                        .fontDesign(.rounded)
-                        .fontWeight(.thin)
-                }
-                .transition(.move(edge: .trailing).combined(with: .opacity))
-                .opacity(1 + (minY / 20))
+                cancelButton
             }
         }
-//        .offset(y: minY < 0 ? -minY / 2 : minY)
         .animation(.easeInOut, value: isButtonEnabled)
         .animation(.easeInOut, value: focus)
-        
-//        .onChange(of: minY) {
-//            if minY < 0 {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-//                    if focus {
-//                        focus = false // Задержка перед снятием фокуса
-//                    }
-//                }
-//            }
-//        }
-        
     }
     
     private var searchImage: some View {
@@ -74,10 +56,9 @@ struct SearchView: View {
         .foregroundStyle(Color.main.textFieldText)
         .fontDesign(.rounded)
         .fontWeight(.light)
-
     }
     
-    private var cancelButton: some View {
+    private var deleteButton: some View {
         Button(action: {searchText = ""}) {
             Image.system.xmark
                 .font(.title3)
@@ -88,7 +69,18 @@ struct SearchView: View {
         .opacity(searchText.isEmpty ? 0 : 1)
         .animation(.default, value: searchText)
     }
-
+    
+    private var cancelButton: some View {
+        Button(action: { focus = false }) {
+            Text(cancelButtonTitle)
+                .foregroundStyle(Color.navigation.cancelButton)
+                .fontDesign(.rounded)
+                .fontWeight(.thin)
+        }
+        .transition(.move(edge: .trailing).combined(with: .opacity))
+        .opacity(1 + (minY / 20))
+    }
+    
     private var background: some View {
         RoundedRectangle(cornerRadius: 15)
             .fill(Color.navigation.textFieldBackground)

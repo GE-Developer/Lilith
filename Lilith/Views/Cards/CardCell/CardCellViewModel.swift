@@ -10,6 +10,7 @@ import Combine
 @MainActor
 final class CardCellViewModel: ObservableObject {
     unowned var cardsViewModel: CardsViewModel
+    
     private(set) var isLiked = false
     private var cancellables = Set<AnyCancellable>()
     

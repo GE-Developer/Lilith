@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardCellView: View {
     @ObservedObject var vm: CardCellViewModel
+    
     let cellHeight: Double
     
     var body: some View {
@@ -37,15 +38,12 @@ struct CardCellView: View {
             }
             .padding(8)
             
-            
             likeSymbolView
-                
         }
     }
     
     private var imageView: some View {
         Image(vm.cardID)
-//        Image("RIDER WAITE - СLASSIC - STRENGTH")
             .resizable()
             .aspectRatio(3/5, contentMode: .fit)
             .clipShape(
@@ -57,7 +55,7 @@ struct CardCellView: View {
             )
             .shadow(color: Color.main.viewShadow, radius: 3)
     }
-
+    
     private var titleTextView: some View {
         Text(vm.title)
             .foregroundStyle(Color.main.text)
@@ -92,19 +90,8 @@ struct CardCellView: View {
     private var planetView: some View {
         Group {
             if let planet = vm.planet {
-                HStack {
+                SpecializationView(title: planet.name, cellHeight: cellHeight) {
                     PlanetView(planet: planet, size: cellHeight / 12)
-                    
-                    Text(planet.name.uppercased())
-                        .foregroundStyle(Color.main.secondaryText)
-                        .font(.caption2)
-                        .fontWeight(.medium)
-                        .fontDesign(.rounded)
-                }
-                .padding(4)
-                .background {
-                    RoundedRectangle(cornerRadius: 5)
-                        .foregroundStyle(Color.main.background)
                 }
             }
         }
@@ -113,19 +100,8 @@ struct CardCellView: View {
     private var zodiacView: some View {
         Group {
             if let zodiac = vm.zodiac {
-                HStack {
+                SpecializationView(title: zodiac.name, cellHeight: cellHeight) {
                     ZodiacView(zodiac: zodiac, size: cellHeight / 12)
-                    
-                    Text(zodiac.name.uppercased())
-                        .foregroundStyle(Color.main.secondaryText)
-                        .font(.caption2)
-                        .fontWeight(.medium)
-                        .fontDesign(.rounded)
-                }
-                .padding(4)
-                .background {
-                    RoundedRectangle(cornerRadius: 5)
-                        .foregroundStyle(Color.main.background)
                 }
             }
         }
@@ -134,19 +110,8 @@ struct CardCellView: View {
     private var elementView: some View {
         Group {
             if let element = vm.element {
-                HStack {
+                SpecializationView(title: element.name, cellHeight: cellHeight) {
                     ElementView(element: element, stroke: 1)
-                        .frame(width: cellHeight / 12, height: cellHeight / 12)
-                    Text(element.name.uppercased())
-                        .foregroundStyle(Color.main.secondaryText)
-                        .font(.caption2)
-                        .fontWeight(.medium)
-                        .fontDesign(.rounded)
-                }
-                .padding(4)
-                .background {
-                    RoundedRectangle(cornerRadius: 5)
-                        .foregroundStyle(Color.main.background)
                 }
             }
         }
@@ -167,5 +132,29 @@ struct CardCellView: View {
             }
         }
         .padding()
+    }
+}
+
+fileprivate struct SpecializationView<ElementImage: View>: View {
+    let title: String
+    let cellHeight: Double
+    
+    @ViewBuilder let elementImage: () -> ElementImage
+    
+    var body: some View {
+        HStack {
+            elementImage()
+                .frame(width: cellHeight / 12, height: cellHeight / 12)
+            Text(title.uppercased())
+                .foregroundStyle(Color.main.secondaryText)
+                .font(.caption2)
+                .fontWeight(.medium)
+                .fontDesign(.rounded)
+        }
+        .padding(4)
+        .background {
+            RoundedRectangle(cornerRadius: 5)
+                .foregroundStyle(Color.main.background)
+        }
     }
 }

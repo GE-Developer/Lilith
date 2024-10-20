@@ -26,13 +26,13 @@ struct SegmentedView: View {
     
     private func didTapped(on arkan: Arcana, scrollProxy: ScrollViewProxy) {
         guard vm.activeTab != arkan else { return }
+        isButtonDisabled = true
         
         withAnimation(.easeInOut) {
             vm.activeTab = arkan
-            scrollProxy.scrollTo(arkan, anchor: .center) // Прокручиваем до выбранного элемента
+            scrollProxy.scrollTo(arkan, anchor: .center)
         }
-        isButtonDisabled = true
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
             isButtonDisabled = false
         }
@@ -59,7 +59,7 @@ extension SegmentedView {
         .background { setupButton(currentArkan: currentArkan) }
         .buttonStyle(NoDimButtonStyle())
         .disabled(isButtonDisabled)
-        .id(currentArkan) // Присваиваем ID каждой кнопке для прокрутки
+        .id(currentArkan)
     }
     
     @ViewBuilder

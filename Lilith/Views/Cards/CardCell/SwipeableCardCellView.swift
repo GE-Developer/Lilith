@@ -9,11 +9,12 @@ import SwiftUI
 
 struct SwipeableCardCellView: View {
     @ObservedObject var vm: CardCellViewModel
-    
-    let cellHeight: Double
-    @State private var offset: CGFloat = 0
     @Binding var isGestureEnabled: Bool
     @Binding var swipedCardID: String?
+    
+    @State private var offset: CGFloat = 0
+    
+    let cellHeight: Double
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,7 +25,6 @@ struct SwipeableCardCellView: View {
                 
                 gestureZone
                     .offset(x: geometryWidth - cellHeight / 2)
-                    .gesture(gestureAction)
                 
                 likeAndDeleteSwipeView
                     .offset(x: geometryWidth + 16 - offset / 2.25 - cellHeight / 7)
@@ -33,13 +33,8 @@ struct SwipeableCardCellView: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: cellHeight)
-        .onDisappear {
-            if offset != 0 {
-                offset = 0
-            }
-        }
+        .onDisappear { resetOffset() }
     }
-
     
     private var likeAndDeleteSwipeView: some View {
         ExplosiveLikeView(
@@ -51,6 +46,12 @@ struct SwipeableCardCellView: View {
         .scaleEffect(max(min(0.1 - offset / 100, 1), 0.0001))
         .opacity(max(min(0 - Double(offset) / 100, 1), 0))
     }
+    
+    private func resetOffset() {
+        if offset != 0 {
+            offset = 0
+        }
+    }
 }
 
 // MARK: - Work with gestures
@@ -60,6 +61,7 @@ extension SwipeableCardCellView {
             .frame(height: cellHeight / 2)
             .foregroundStyle(.clear)
             .contentShape(Circle())
+            .gesture(gestureAction)
     }
     
     private var gestureAction: some Gesture {
@@ -79,7 +81,7 @@ extension SwipeableCardCellView {
         }
     }
     
-    private func gestureEnded(_ gesture: DragGesture.Value) {
+     private func gestureEnded(_ gesture: DragGesture.Value) {
         if offset < -40 {
             
             withAnimation(.easeInOut(duration: 0.2)) {

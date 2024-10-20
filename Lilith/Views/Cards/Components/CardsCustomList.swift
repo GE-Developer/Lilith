@@ -11,12 +11,12 @@ import SwiftUI
 struct CardsCustomList: View {
     @ObservedObject var vm: CardsViewModel
     @Binding var isGestureEnabled: Bool
+    
     @State private var swipedCardID: String? = nil
     
-
     var body: some View {
         LazyVStack(spacing: 15) {
-            ForEachSection { arkan, cardsForSection in
+            forEachSection { arkan, cardsForSection in
                 Spacer(minLength: 7)
                 Section(header: ArkanTitleView(text: arkan.plural)) {
                     if !cardsForSection.isEmpty {
@@ -28,9 +28,9 @@ struct CardsCustomList: View {
                             Button(action: { print("Нажатие на карту")  }) {
                                 SwipeableCardCellView(
                                     vm: vmCell,
-                                    cellHeight: 150,
                                     isGestureEnabled: $isGestureEnabled,
-                                    swipedCardID: $swipedCardID
+                                    swipedCardID: $swipedCardID,
+                                    cellHeight: 150
                                 )
                                 .id(card.id)
                                 
@@ -62,7 +62,7 @@ struct CardsCustomList: View {
 
     
     @ViewBuilder
-    private func ForEachSection(@ViewBuilder completion: @escaping (Arcana, [Card]) -> some View) -> some View {
+    private func forEachSection(@ViewBuilder completion: @escaping (Arcana, [Card]) -> some View) -> some View {
         
         switch vm.activeTab {
         case .all:
@@ -72,8 +72,8 @@ struct CardsCustomList: View {
                 }
             }
 //        default:
-//            if let cardsForSection = cards[activeTab] {
-//                completion(activeTab, cardsForSection)
+//            if let cardsForSection = vm.presentedCards[vm.activeTab] {
+//                sectionView(for: vm.activeTab, completion: completion)
 //            }
         case .major:
             if let cardsForSection = vm.presentedCards[vm.activeTab] {
@@ -89,7 +89,16 @@ struct CardsCustomList: View {
             }
         }
     }
+    
+    @ViewBuilder
+    private func sectionView(for arcana: Arcana, @ViewBuilder completion: @escaping (Arcana, [Card]) -> some View) -> some View {
+        if let cardsForSection = vm.presentedCards[arcana] {
+            completion(arcana, cardsForSection)
+        }
+    }
 }
+
+
 
 struct NoCardView: View {
     let text: String
@@ -117,35 +126,3 @@ struct ArkanTitleView: View {
             .fontWeight(.semibold)
     }
 }
-
-
-
-//struct TabTransitionModifier: ViewModifier {
-//    let previousTab: Int
-//    let currentTab: Int
-//
-//    func body(content: Content) -> some View {
-//        let isForward = previousTab < currentTab
-//
-//        let insertionEdge: Edge = isForward ? .trailing : .leading
-//        let removalEdge: Edge = isForward ? .leading : .trailing
-//        
-//        let transition: AnyTransition = .asymmetric(
-//            insertion: .move(edge: insertionEdge),
-//            removal: .move(edge: removalEdge)
-//        )
-//        
-//        return content
-//            .transition(transition.combined(with: .opacity))
-//    }
-//}
-//
-//extension View {
-//    func tabTransition(previousTab: Int, currentTab: Int) -> some View {
-//        let viewModifier = TabTransitionModifier(
-//            previousTab: previousTab,
-//            currentTab: currentTab
-//        )
-//        return self.modifier(viewModifier)
-//    }
-//}
