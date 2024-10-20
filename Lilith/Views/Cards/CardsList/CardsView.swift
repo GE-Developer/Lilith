@@ -79,7 +79,7 @@ fileprivate struct NavigationBarView: View {
     }
     
     private var likeButton: some View {
-        Button(action: { print("Кнопка") }) {
+        Button(action: likeViewButtonPressed) {
             ZStack {
                 Circle()
                     .foregroundStyle(Color.navigation.likeButtonBackground)
@@ -90,9 +90,7 @@ fileprivate struct NavigationBarView: View {
                     .foregroundStyle(Gradient.heartGradient)
                     .offset(y: 1)
                     .scaleEffect(0.5)
-                
                 countBall
-                
             }
             .aspectRatio(1/1, contentMode: .fit)
         }
@@ -104,7 +102,7 @@ fileprivate struct NavigationBarView: View {
     }
     
     private var infoButton: some View {
-        Button(action: { print("infoButton Pressed") }) {
+        Button(action: infoViewButtonPressed) {
             ZStack {
                 Circle()
                     .foregroundStyle(Color.navigation.likeButtonBackground)
@@ -159,6 +157,17 @@ fileprivate struct NavigationBarView: View {
             countBallIsPresented = true
         }
     }
+    
+    private func likeViewButtonPressed() {
+#warning("Like View button")
+        print("Like View button pressed")
+    }
+    
+    private func infoViewButtonPressed() {
+#warning("Info View button")
+        print("Info View button pressed")
+    }
+    
 }
 
 fileprivate struct HeaderView: View {

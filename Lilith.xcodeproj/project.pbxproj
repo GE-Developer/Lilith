@@ -31,6 +31,7 @@
 		1FB500E02CB5F260008F0185 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB500DF2CB5F260008F0185 /* StorageManager.swift */; };
 		1FB500E22CB5F287008F0185 /* LikedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB500E12CB5F287008F0185 /* LikedCard.swift */; };
 		1FC6FE432C866CFC008345F3 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6FE422C866CFC008345F3 /* Color + Extension.swift */; };
+		1FC7CE9A2CC555C00044B9D6 /* NoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7CE992CC555C00044B9D6 /* NoCardView.swift */; };
 		1FC974B22C8A09CE0089FC39 /* ZodiacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC974B12C8A09CE0089FC39 /* ZodiacView.swift */; };
 		1FD926592C87BB96000E0AB4 /* ElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD926582C87BB96000E0AB4 /* ElementView.swift */; };
 		1FE5EA982C988C87006197F8 /* CardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE5EA972C988C87006197F8 /* CardCellViewModel.swift */; };
@@ -65,6 +66,7 @@
 		1FB500DF2CB5F260008F0185 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		1FB500E12CB5F287008F0185 /* LikedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCard.swift; sourceTree = "<group>"; };
 		1FC6FE422C866CFC008345F3 /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
+		1FC7CE992CC555C00044B9D6 /* NoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCardView.swift; sourceTree = "<group>"; };
 		1FC974B12C8A09CE0089FC39 /* ZodiacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacView.swift; sourceTree = "<group>"; };
 		1FD926582C87BB96000E0AB4 /* ElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementView.swift; sourceTree = "<group>"; };
 		1FE5EA972C988C87006197F8 /* CardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellViewModel.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				1FC974B12C8A09CE0089FC39 /* ZodiacView.swift */,
 				1F6C5DCE2CC343900017E4A9 /* PlanetView.swift */,
 				1FACAD8B2CA34C7F0036FB50 /* CustomScrollView.swift */,
+				1FC7CE992CC555C00044B9D6 /* NoCardView.swift */,
 			);
 			path = "Service Views";
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				1F4CB66A2C7BCB05005BD10C /* LilithApp.swift in Sources */,
 				1F7F68B12C934A4E0092FEB4 /* CardsViewModel.swift in Sources */,
 				1F6B6BFF2CBB070A00CB5AF9 /* View + Extension.swift in Sources */,
+				1FC7CE9A2CC555C00044B9D6 /* NoCardView.swift in Sources */,
 				1F6C5DCF2CC343900017E4A9 /* PlanetView.swift in Sources */,
 				1FE5EA982C988C87006197F8 /* CardCellViewModel.swift in Sources */,
 				1FD926592C87BB96000E0AB4 /* ElementView.swift in Sources */,

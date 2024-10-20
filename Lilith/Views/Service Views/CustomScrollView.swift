@@ -32,6 +32,10 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
         }
     }
     
+    private var scrollMargins: Double {
+        min(max(minY + 2, -headerHeight - smallNavBarHeight + 8 + 5),2)
+    }
+    
     private let headerHeight: Double
     private let withBackButton: Bool
     private let type: ViewType
@@ -77,10 +81,11 @@ struct CustomScrollView<Header: View, Scroll: View, Title: View>: View {
                 geometryReader
                 scrollView()
             }
-            .scrollDismissesKeyboard(.immediately)
             .safeAreaPadding(.horizontal)
-            .safeAreaPadding(.top, largeNavBarHeight + 8 + headerHeight)
+            .safeAreaPadding(.top, largeNavBarHeight + headerHeight + 16)
+            .scrollDismissesKeyboard(.immediately)
             .scrollTargetBehavior(scrollBehavior)
+            .contentMargins(.top, scrollMargins, for: .scrollIndicators)
             .zIndex(1)
             
         }

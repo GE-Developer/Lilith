@@ -55,7 +55,7 @@ struct SwipeableCardCellView: View {
 }
 
 // MARK: - Work with gestures
-extension SwipeableCardCellView {
+ extension SwipeableCardCellView {
     private var gestureZone: some View {
         Circle()
             .frame(height: cellHeight / 2)
@@ -81,7 +81,7 @@ extension SwipeableCardCellView {
         }
     }
     
-     private func gestureEnded(_ gesture: DragGesture.Value) {
+    private func gestureEnded(_ gesture: DragGesture.Value) {
         if offset < -40 {
             
             withAnimation(.easeInOut(duration: 0.2)) {
@@ -104,7 +104,6 @@ extension SwipeableCardCellView {
                     }
                 }
             }
-            
         } else {
             withAnimation(.easeOut(duration: 0.5)) {
                 offset = 0
