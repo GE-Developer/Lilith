@@ -13,6 +13,10 @@
 		1F1581F82C9F489000C3AEE7 /* ClassicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1581F72C9F489000C3AEE7 /* ClassicCard.swift */; };
 		1F2567582CB07BE400F91C63 /* Gradient + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2567572CB07BE400F91C63 /* Gradient + Extension.swift */; };
 		1F3723B42CBC01DD00874045 /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3723B32CBC01DD00874045 /* CardCellView.swift */; };
+		1F3EBEA52CC666C30091918F /* Arcana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EBEA12CC666C30091918F /* Arcana.swift */; };
+		1F3EBEA62CC666C30091918F /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EBEA22CC666C30091918F /* Element.swift */; };
+		1F3EBEA72CC666C30091918F /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EBEA32CC666C30091918F /* Planet.swift */; };
+		1F3EBEA82CC666C30091918F /* Zodiac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EBEA42CC666C30091918F /* Zodiac.swift */; };
 		1F4CB46A2CBE7E170093422F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F4CB4682CBE7E170093422F /* Localizable.strings */; };
 		1F4CB66A2C7BCB05005BD10C /* LilithApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB6692C7BCB05005BD10C /* LilithApp.swift */; };
 		1F4CB6712C7BCB07005BD10C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F4CB6702C7BCB07005BD10C /* Preview Assets.xcassets */; };
@@ -47,6 +51,10 @@
 		1F1581F72C9F489000C3AEE7 /* ClassicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicCard.swift; sourceTree = "<group>"; };
 		1F2567572CB07BE400F91C63 /* Gradient + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient + Extension.swift"; sourceTree = "<group>"; };
 		1F3723B32CBC01DD00874045 /* CardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
+		1F3EBEA12CC666C30091918F /* Arcana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arcana.swift; sourceTree = "<group>"; };
+		1F3EBEA22CC666C30091918F /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		1F3EBEA32CC666C30091918F /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		1F3EBEA42CC666C30091918F /* Zodiac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zodiac.swift; sourceTree = "<group>"; };
 		1F4CB4692CBE7E170093422F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F4CB46B2CBE7E1F0093422F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F4CB6662C7BCB05005BD10C /* Lilith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lilith.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,11 +87,6 @@
 		1F108A7F2CBEC1790095F36E /* SwiftGen */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwiftGen;
-			sourceTree = "<group>";
-		};
-		1FB951C22CB86A9800DBD0C5 /* Enums */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -163,6 +166,17 @@
 			path = CardsList;
 			sourceTree = "<group>";
 		};
+		1F3EBEAA2CC666F70091918F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				1F3EBEA12CC666C30091918F /* Arcana.swift */,
+				1F3EBEA22CC666C30091918F /* Element.swift */,
+				1F3EBEA32CC666C30091918F /* Planet.swift */,
+				1F3EBEA42CC666C30091918F /* Zodiac.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		1F4CB65D2C7BCB05005BD10C = {
 			isa = PBXGroup;
 			children = (
@@ -188,8 +202,8 @@
 				1FB500DE2CB5F22D008F0185 /* Services */,
 				1F34ECC82CAC8FA9003307A3 /* Data Manager */,
 				1F2972E62C8AF878007FAD82 /* Views */,
+				1F3EBEAA2CC666F70091918F /* Enums */,
 				1F2972E82C8AFE25007FAD82 /* Extensions */,
-				1FB951C22CB86A9800DBD0C5 /* Enums */,
 				1F2972EA2C8AFE73007FAD82 /* Resources */,
 				1F4CB66F2C7BCB07005BD10C /* Preview Content */,
 			);
@@ -273,7 +287,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				1F108A7F2CBEC1790095F36E /* SwiftGen */,
-				1FB951C22CB86A9800DBD0C5 /* Enums */,
 			);
 			name = Lilith;
 			productName = Lilith;
@@ -367,6 +380,10 @@
 				1F6B6BFF2CBB070A00CB5AF9 /* View + Extension.swift in Sources */,
 				1FC7CE9A2CC555C00044B9D6 /* NoCardView.swift in Sources */,
 				1F6C5DCF2CC343900017E4A9 /* PlanetView.swift in Sources */,
+				1F3EBEA52CC666C30091918F /* Arcana.swift in Sources */,
+				1F3EBEA62CC666C30091918F /* Element.swift in Sources */,
+				1F3EBEA72CC666C30091918F /* Planet.swift in Sources */,
+				1F3EBEA82CC666C30091918F /* Zodiac.swift in Sources */,
 				1FE5EA982C988C87006197F8 /* CardCellViewModel.swift in Sources */,
 				1FD926592C87BB96000E0AB4 /* ElementView.swift in Sources */,
 				1FACAD8C2CA34C7F0036FB50 /* CustomScrollView.swift in Sources */,
