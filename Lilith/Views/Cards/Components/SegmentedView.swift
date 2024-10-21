@@ -27,7 +27,7 @@ struct SegmentedView: View {
     private func didTapped(on arkan: Arcana, scrollProxy: ScrollViewProxy) {
         guard vm.activeTab != arkan else { return }
         isButtonDisabled = true
-        
+
         withAnimation(.easeInOut) {
             vm.activeTab = arkan
             scrollProxy.scrollTo(arkan, anchor: .center)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F00888F2CA8626C003C5F13 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00888E2CA8626C003C5F13 /* CardsView.swift */; };
+		1F08D3972CC5E250000ADF64 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F08D3962CC5E250000ADF64 /* HapticsManager.swift */; };
 		1F108A8F2CBEE6ED0095F36E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F108A8E2CBEE6ED0095F36E /* Strings.swift */; };
 		1F1581F82C9F489000C3AEE7 /* ClassicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1581F72C9F489000C3AEE7 /* ClassicCard.swift */; };
 		1F2567582CB07BE400F91C63 /* Gradient + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2567572CB07BE400F91C63 /* Gradient + Extension.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		1F00888E2CA8626C003C5F13 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		1F08D3962CC5E250000ADF64 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		1F108A832CBEC33D0095F36E /* ka */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ka; path = ka.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1F108A8E2CBEE6ED0095F36E /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		1F1581F72C9F489000C3AEE7 /* ClassicCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicCard.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				1FB500DF2CB5F260008F0185 /* StorageManager.swift */,
+				1F08D3962CC5E250000ADF64 /* HapticsManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				1F108A8F2CBEE6ED0095F36E /* Strings.swift in Sources */,
 				1F98222D2CAC93260054C73A /* Image + Extension.swift in Sources */,
 				1FA003A12C7E9C1E004726FC /* Card.swift in Sources */,
+				1F08D3972CC5E250000ADF64 /* HapticsManager.swift in Sources */,
 				1F5229C22CAF640E0040932D /* ExplosiveLikeView.swift in Sources */,
 				1FC6FE432C866CFC008345F3 /* Color + Extension.swift in Sources */,
 				1F2567582CB07BE400F91C63 /* Gradient + Extension.swift in Sources */,

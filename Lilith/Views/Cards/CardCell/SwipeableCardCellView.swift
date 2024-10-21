@@ -86,11 +86,8 @@ extension SwipeableCardCellView {
         withAnimation(.easeInOut(duration: 0.2)) {
             offset = -110
         } completion: {
-            likeAction()
+            vm.likeOrDislikeCard()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                 returnCell()
             }
@@ -111,14 +108,6 @@ extension SwipeableCardCellView {
         if isGestureEnabled {
             isGestureEnabled = false
             swipedCardID = vm.cardID
-        }
-    }
-    
-    private func likeAction() {
-        if vm.isLiked {
-            vm.cardsViewModel.deleteCard(ids: [vm.cardID])
-        } else {
-            vm.cardsViewModel.addCard(id: vm.cardID)
         }
     }
 }

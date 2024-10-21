@@ -12,6 +12,7 @@ final class CardsViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var activeTab: Arcana = .all {
         didSet {
+            HapticsManager.shared.selectionChanged()
             previousTab = oldValue
         }
     }
@@ -90,6 +91,11 @@ final class CardsViewModel: ObservableObject {
                 print("Ошибка при удалении карт: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func deleteText() {
+        searchText = ""
+        HapticsManager.shared.impact(style: .rigid)
     }
     
     private func sortCards(cards: [Arcana: [Card]]) {

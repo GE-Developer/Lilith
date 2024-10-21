@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct SearchView: View {
-    @Binding var searchText: String
+    @ObservedObject var vm: CardsViewModel
     @FocusState var focus: Bool
-    
     @State private var isButtonEnabled = false
-    
-    let placeholderText: String
-    let cancelButtonTitle: String
+
     let minY: Double
     
     var body: some View {
@@ -47,7 +44,7 @@ struct SearchView: View {
     }
     
     private var searchField: some View {
-        TextField(placeholderText, text: $searchText) { isEditing in
+        TextField(vm.placeholderText, text: $vm.searchText) { isEditing in
             isButtonEnabled = isEditing
         }
         .focused($focus)
@@ -59,20 +56,20 @@ struct SearchView: View {
     }
     
     private var deleteButton: some View {
-        Button(action: {searchText = ""}) {
+        Button(action: vm.deleteText) {
             Image.system.xmark
                 .font(.title3)
                 .fontWeight(.ultraLight)
                 .foregroundStyle(Color.navigation.cancelButton)
                 .padding(.trailing, 10)
         }
-        .opacity(searchText.isEmpty ? 0 : 1)
-        .animation(.default, value: searchText)
+        .opacity(vm.searchText.isEmpty ? 0 : 1)
+        .animation(.default, value: vm.searchText)
     }
     
     private var cancelButton: some View {
         Button(action: { focus = false }) {
-            Text(cancelButtonTitle)
+            Text(vm.cancelButtonTitle)
                 .foregroundStyle(Color.navigation.cancelButton)
                 .fontDesign(.rounded)
                 .fontWeight(.thin)

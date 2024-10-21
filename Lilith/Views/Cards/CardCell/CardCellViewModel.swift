@@ -5,6 +5,7 @@
 //  Created by GE-Developer
 //
 
+import Foundation
 import Combine
 
 @MainActor
@@ -31,6 +32,16 @@ final class CardCellViewModel: ObservableObject {
         cardID = card.id
         
         bindIsLiked()
+    }
+    
+    func likeOrDislikeCard() {
+        if isLiked {
+            cardsViewModel.deleteCard(ids: [cardID])
+            HapticsManager.shared.impact(delay: 0.2)
+        } else {
+            cardsViewModel.addCard(id: cardID)
+            HapticsManager.shared.notification(type: .success, delay: 0.2)
+        }
     }
     
     private func bindIsLiked() {

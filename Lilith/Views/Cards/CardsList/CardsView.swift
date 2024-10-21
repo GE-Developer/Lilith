@@ -178,12 +178,7 @@ fileprivate struct HeaderView: View {
     
     var body: some View {
         VStack {
-            SearchView(
-                searchText: $vm.searchText,
-                placeholderText: vm.placeholderText,
-                cancelButtonTitle: vm.cancelButtonTitle,
-                minY: minY
-            )
+            SearchView(vm: vm, minY: minY)
             .offset(y: min(minY / 2, 0))
             Spacer()
             SegmentedView(vm: vm)
