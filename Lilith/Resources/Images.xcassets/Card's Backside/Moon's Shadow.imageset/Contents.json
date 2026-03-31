@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Moon's Shadow.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
